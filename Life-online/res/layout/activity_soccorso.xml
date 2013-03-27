@@ -32,16 +32,30 @@
         android:layout_marginTop="41dp"
         android:background="#ff0000"
         android:text="@string/help"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:textSize="10pt" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="54dp"
+        android:background="#00BB00"
+        android:text="@string/call"
+        android:textColor="#000000"
+        android:textSize="10pt" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_below="@+id/button1"
-        android:layout_marginTop="26dp"
-        android:background="#ff8100"
+        android:layout_marginTop="48dp"
+        android:background="#ff8800"
         android:text="@string/help2"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:textSize="10pt" />
 
 </RelativeLayout>
