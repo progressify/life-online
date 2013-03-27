@@ -4,6 +4,9 @@
     <string name="app_name">Life-online</string>
     <string name="action_settings">Settings</string>
     <string name="description">Tipo di soccorso</string>
-    
-
+    <string name="title_activity_soccorso">SoccorsoActivity</string>
+    <string name="menu_settings">Settings</string>
+    <string name="soccorso">Soccorso</string>
+    <string name="help">Help Me</string>
+    <string name="help2">Help Other</string>
 </resources>

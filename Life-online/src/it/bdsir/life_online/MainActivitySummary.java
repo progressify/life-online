@@ -2,6 +2,7 @@ package it.bdsir.life_online;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
@@ -18,6 +19,9 @@ public class MainActivitySummary extends Activity {
 		ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
 		cols);
 		list.setAdapter(adapter);
+		/* deve essere contenuto nell'actionListene(onListItemClick)*/
+		Intent miaIntent= new Intent(this,SoccorsoActivity.class);
+		startActivity(miaIntent);
 	}
 
 	@Override
