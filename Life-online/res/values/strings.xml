@@ -3,5 +3,7 @@
 
     <string name="app_name">Life-online</string>
     <string name="action_settings">Settings</string>
+    <string name="description">Tipo di soccorso</string>
+    
 
 </resources>
