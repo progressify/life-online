@@ -14,7 +14,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_activity_service_info">ActivityServiceInfo</string>
     <string name="title_activity_activity_distress_not_personal">ActivityDistressNotPersonal</string>
-    <string name="not_personal">Soccorso Non Personale</string>
+    <string name="not_personal">Personale</string>
     <string name="numero_feriti">Numero Feriti</string>
     <string-array name="num_persone">
         <item >1</item>

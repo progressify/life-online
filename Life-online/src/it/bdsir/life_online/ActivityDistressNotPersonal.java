@@ -19,7 +19,8 @@ public class ActivityDistressNotPersonal extends Activity {
 		
 		Spinner s = (Spinner) findViewById(R.id.spinner);
 		final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.num_persone, android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); s.setAdapter(adapter);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); 
+		s.setAdapter(adapter);
 		s.setOnItemSelectedListener(new OnItemSelectedListener() {
 		@Override
 		public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) { Toast.makeText(getApplicationContext(), adapter.getItem(arg2).toString(),
@@ -31,6 +32,8 @@ public class ActivityDistressNotPersonal extends Activity {
 			
 		}
 		}); }
+	
+	
 	
 		
 
