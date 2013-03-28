@@ -22,6 +22,10 @@ public class MainActivitySummary extends Activity {
 		/* deve essere contenuto nell'actionListene(onListItemClick)*/
 		Intent miaIntent= new Intent(this,ActivityDistressNotPersonal.class);
 		startActivity(miaIntent);
+		
+		// Aggiunta Intent Service INFO 
+		Intent serviceIntent = new Intent(this, ActivityServiceInfo.class);
+		startActivity(serviceIntent);
 	}
 
 	@Override
