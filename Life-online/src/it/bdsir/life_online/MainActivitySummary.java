@@ -20,7 +20,7 @@ public class MainActivitySummary extends Activity {
 		cols);
 		list.setAdapter(adapter);
 		/* deve essere contenuto nell'actionListene(onListItemClick)*/
-		Intent miaIntent= new Intent(this,SoccorsoActivity.class);
+		Intent miaIntent= new Intent(this,ActivityDistressNotPersonal.class);
 		startActivity(miaIntent);
 	}
 
