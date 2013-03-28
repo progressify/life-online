@@ -12,7 +12,6 @@
     <string name="help2">Help Other</string>
     <string name="call">Call</string>
     <string name="title_activity_activity_my_position_">ActivityMyPosition_</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_activity_service_info">ActivityServiceInfo</string>
     <string name="title_activity_activity_distress_not_personal">ActivityDistressNotPersonal</string>
     <string name="not_personal">Non Personale</string>
@@ -42,5 +41,14 @@
         <item >Altro</item>
 
     </string-array>
+	
+	<string name="personal_info">Informazioni Personali</string>
+	<string name="userID">Codice fiscale</string>
+	<string name="user_name">Nome</string>
+	<string name="user_surname">Cognome</string>
+	<string name="medical_record">Informazioni sanitarie aggiuntive</string>
+	<string name="birth">Data di nascita</string>
+	<string name="hint_for_medical_information">Gruppo sanguigno, allergia note, patologie note, etc.. </string>
+	<string name="hint_for_birth">gg/mm/aaaa</string>
 
 </resources>
