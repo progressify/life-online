@@ -10,4 +10,9 @@
     <string name="help">Help Me</string>
     <string name="help2">Help Other</string>
     <string name="call">Call</string>
+    <string name="title_activity_activity_my_position_">ActivityMyPosition_</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_activity_service_info">ActivityServiceInfo</string>
+    <string name="title_activity_activity_distress_not_personal">ActivityDistressNotPersonal</string>
+
 </resources>
