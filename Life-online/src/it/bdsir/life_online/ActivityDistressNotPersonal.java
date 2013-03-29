@@ -16,21 +16,21 @@ public class ActivityDistressNotPersonal extends Activity {
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.activity_activity_distress_not_personal);
                 
-                Spinner s = (Spinner) findViewById(R.id.spinner);
-                Spinner ss = (Spinner) findViewById(R.id.spinner2);
-                Spinner sss = (Spinner) findViewById(R.id.spinner3);
-                final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.num_persone, android.R.layout.simple_spinner_item);
-                final ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.cause, android.R.layout.simple_spinner_item);
-                final ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.sintomi, android.R.layout.simple_spinner_item);
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); 
-                adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                s.setAdapter(adapter);
-                ss.setAdapter(adapter2);
-                sss.setAdapter(adapter3);
-                s.setOnItemSelectedListener(new OnItemSelectedListener() {
+                Spinner numeroPersone = (Spinner) findViewById(R.id.spinner);
+                Spinner cause = (Spinner) findViewById(R.id.spinner2);
+                Spinner sintomi = (Spinner) findViewById(R.id.spinner3);
+                final ArrayAdapter<CharSequence> numPersoneBox = ArrayAdapter.createFromResource(this, R.array.num_persone, android.R.layout.simple_spinner_item);
+                final ArrayAdapter<CharSequence> causeBox = ArrayAdapter.createFromResource(this, R.array.cause, android.R.layout.simple_spinner_item);
+                final ArrayAdapter<CharSequence> sintomiBox = ArrayAdapter.createFromResource(this, R.array.sintomi, android.R.layout.simple_spinner_item);
+                numPersoneBox.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); 
+                causeBox.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                sintomiBox.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                numeroPersone.setAdapter(numPersoneBox);
+                cause.setAdapter(causeBox);
+                sintomi.setAdapter(sintomiBox);
+                numeroPersone.setOnItemSelectedListener(new OnItemSelectedListener() {
                 @Override
-                public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) { Toast.makeText(getApplicationContext(), adapter.getItem(arg2).toString(),
+                public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) { Toast.makeText(getApplicationContext(), numPersoneBox.getItem(arg2).toString(),
                 Toast.LENGTH_LONG).show(); }
                 
 
@@ -42,24 +42,24 @@ public class ActivityDistressNotPersonal extends Activity {
                 });
                 
         
-                ss.setOnItemSelectedListener(new OnItemSelectedListener() {
-                	@Override
-                	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) { Toast.makeText(getApplicationContext(), adapter2.getItem(arg2).toString(),
-                			Toast.LENGTH_LONG).show(); }
+                cause.setOnItemSelectedListener(new OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) { Toast.makeText(getApplicationContext(), causeBox.getItem(arg2).toString(),
+                Toast.LENGTH_LONG).show(); }
 
-                	@Override
+                @Override
                     public void onNothingSelected(AdapterView<?> arg0) {
                             // TODO Auto-generated method stub
                             
                     }
                     });
                 
-                sss.setOnItemSelectedListener(new OnItemSelectedListener() {
-                	@Override
-                	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) { Toast.makeText(getApplicationContext(), adapter3.getItem(arg2).toString(),
-                			Toast.LENGTH_LONG).show(); }
+                sintomi.setOnItemSelectedListener(new OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) { Toast.makeText(getApplicationContext(), sintomiBox.getItem(arg2).toString(),
+                Toast.LENGTH_LONG).show(); }
 
-                	@Override
+                @Override
                     public void onNothingSelected(AdapterView<?> arg0) {
                             // TODO Auto-generated method stub
                             
@@ -81,5 +81,3 @@ public class ActivityDistressNotPersonal extends Activity {
         }
 
 }
-	
-	
