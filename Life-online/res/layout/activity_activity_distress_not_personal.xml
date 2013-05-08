@@ -86,7 +86,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:background="@drawable/background_normal"
-        android:onClick="go"
         android:padding="20dip"
         android:text="@string/invia" />
     
