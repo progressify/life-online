@@ -23,26 +23,26 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/view1"
         android:layout_alignParentTop="true"
-        android:text="@string/not_personal"
+        android:text="@string/text_soccorso_non_personale"
         android:textSize="13pt"
         android:textStyle="italic|bold" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinner_numero_feriti"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/textView2" />
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/spinner_sintomi"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView4"
         android:layout_below="@+id/textView4" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spinner_causa_malessere"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView4"
@@ -52,9 +52,9 @@
         android:id="@+id/textView3"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/spinner"
-        android:layout_below="@+id/spinner"
-        android:text="@string/causa"
+        android:layout_alignLeft="@+id/spinner_numero_feriti"
+        android:layout_below="@+id/spinner_numero_feriti"
+        android:text="@string/text_causa"
         android:textSize="8pt"
         android:textStyle="italic|bold" />
 
@@ -63,8 +63,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView3"
-        android:layout_below="@+id/spinner2"
-        android:text="@string/sint"
+        android:layout_below="@+id/spinner_causa_malessere"
+        android:text="@string/text_sintomi"
         android:textSize="8pt"
         android:textStyle="italic|bold" />
 
@@ -72,21 +72,22 @@
         android:id="@+id/textView2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/spinner"
+        android:layout_alignLeft="@+id/spinner_numero_feriti"
         android:layout_below="@+id/view1"
         android:layout_marginTop="14dp"
-        android:text="@string/numero_feriti"
+        android:text="@string/text_numero_feriti"
         android:textSize="8pt"
         android:textStyle="italic|bold" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spinner3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/background_normal"
-        android:padding="20dip"
-        android:text="@string/invia" />
+     <Button
+         android:id="@+id/button_invia"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/spinner_sintomi"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="67dp"
+         android:background="@drawable/background_normal"
+         android:padding="20dip"
+         android:text="@string/button_invia" />
     
 </RelativeLayout>

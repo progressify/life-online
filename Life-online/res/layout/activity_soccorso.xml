@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="@string/soccorso"
+        android:text="@string/text_soccorso"
         android:textColor="#000000"
         android:textSize="13pt"
         android:textStyle="italic|bold" />
@@ -36,7 +36,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="41dp"
         android:background="#ff0000"
-        android:text="@string/help"
+        android:text="@string/buttonHelp"
         android:textColor="#000000"
         android:textSize="10pt" />
 
@@ -47,7 +47,7 @@
         android:layout_below="@+id/button2"
         android:layout_marginTop="54dp"
         android:background="#00BB00"
-        android:text="@string/call"
+        android:text="@string/button_call"
         android:textColor="#000000"
         android:textSize="10pt" />
 
@@ -59,7 +59,7 @@
         android:layout_below="@+id/button1"
         android:layout_marginTop="48dp"
         android:background="#ff8800"
-        android:text="@string/help2"
+        android:text="@string/buttonHelp2"
         android:textColor="#000000"
         android:textSize="10pt" />
 

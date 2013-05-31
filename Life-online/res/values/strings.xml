@@ -3,52 +3,59 @@
 
     <string name="app_name">Life-online</string>
     <string name="action_settings">Impostzioni</string>
-    <string name="description">Tipo di soccorso</string>
-    <string name="title_activity_soccorso">Soccorso</string>
     <string name="menu_settings">Impostazioni</string>
-    <string name="soccorso">Soccorso</string>
-    <string name="help">Help Me</string>
-    <string name="invia">Invia</string>
-    <string name="help2">Help Other</string>
-    <string name="call">Call</string>
+    <!-- toast -->
+    <string name="toast_connection_unavailable">Connessione assente</string>
+    <!-- text view -->
+    <string name="text_tipi_di_soccorso">Tipo di soccorso</string>
+    <string name="text_soccorso">Soccorso</string>
+    <string name="text_soccorso_non_personale">Non Personale</string>
+    <string name="text_numero_feriti">Numero Feriti</string>
+    <string name="text_causa">Causa Malessere</string>
+    <string name="text_sintomi">Sintomi</string>
+    <string name="text_informazioni_personali">Informazioni Personali</string>
+    <string name="text_codice_fiscale">Codice fiscale</string>
+    <string name="text_nome">Nome</string>
+    <string name="text_cognome">Cognome</string>
+    <string name="text_info_aggiuntive">Informazioni sanitarie aggiuntive</string>
+    <string name="text_data_nascita">Data di nascita</string>
+    <!-- nome activity -->
     <string name="title_activity_activity_my_position_">Mia Posizione</string>
     <string name="title_activity_activity_service_info">Adesione al servizio</string>
     <string name="title_activity_activity_distress_not_personal">Soccorso non personale</string>
-    <string name="not_personal">Non Personale</string>
-    <string name="numero_feriti">Numero Feriti</string>
+    <string name="title_activity_soccorso">Soccorso</string>
+    <!-- Bottoni -->
+    <string name="buttonOk">OK</string>
+    <string name="buttonHelp">Soccorso Personale</string>
+    <string name="button_invia">Invia</string>
+    <string name="buttonHelp2">Soccorso di Terzi</string>
+    <string name="button_call">Chiamata</string>
+    <string name="button_set">Imposta</string>
+    <!-- suggerimenti -->
+    <string name="hint_for_medical_information">Gruppo sanguigno, allergia note, patologie note, etc.. </string>
+    <string name="hint_for_birth">gg/mm/aaaa</string>
+    <!-- progress dialog -->
+    <string name="progress_dialog_invio_segnalazione">Invio della Segnalazione..</string>
+    <!-- array -->
     <string-array name="num_persone">
-        <item >1</item>
-        <item >2</item>
-        <item >3</item>
-        <item >4</item>
-        <item >5</item>
-        <item >5+</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>5+</item>
     </string-array>
-    <string name="causa">Causa Malessere</string>
-     <string-array name="cause">
-        <item >Incidente autostradale</item>
-        <item >Aggressione</item>
-        <item >Malessere improvviso</item>
-        <item >Altro</item>
-
+    <string-array name="cause">
+        <item>Incidente autostradale</item>
+        <item>Aggressione</item>
+        <item>Malessere improvviso</item>
+        <item>Altro</item>
     </string-array>
-    
-     <string name="sint">Sintomi</string>
-     <string-array name="sintomi">
-        <item >Difficoltà respiratorie</item>
-        <item >Battito debole</item>
-        <item >Dolori da trauma</item>
-        <item >Altro</item>
-
+    <string-array name="sintomi">
+        <item>Difficoltà respiratorie</item>
+        <item>Battito debole</item>
+        <item>Dolori da trauma</item>
+        <item>Altro</item>
     </string-array>
-	
-	<string name="personal_info">Informazioni Personali</string>
-	<string name="userID">Codice fiscale</string>
-	<string name="user_name">Nome</string>
-	<string name="user_surname">Cognome</string>
-	<string name="medical_record">Informazioni sanitarie aggiuntive</string>
-	<string name="birth">Data di nascita</string>
-	<string name="hint_for_medical_information">Gruppo sanguigno, allergia note, patologie note, etc.. </string>
-	<string name="hint_for_birth">gg/mm/aaaa</string>
 
 </resources>

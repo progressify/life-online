@@ -2,13 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:textAlignment="center"
-    tools:context=".ActivityServiceInfo" >
+    android:paddingTop="@dimen/activity_vertical_margin" >
 
     <TextView
         android:id="@+id/title"
@@ -16,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="@string/personal_info"
+        android:text="@string/text_informazioni_personali"
         android:textSize="13pt" />
 
     <View
@@ -43,7 +40,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/view1"
         android:layout_marginTop="18dp"
-        android:text="@string/userID"
+        android:text="@string/text_codice_fiscale"
         android:textSize="8pt" />
 
     <EditText
@@ -52,11 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/userIDLabel"
-        android:hint="@string/userID"
-        android:inputType="textCapCharacters" >
-
-        <requestFocus />
-    </EditText>
+        android:hint="@string/text_codice_fiscale"
+        android:inputType="textCapCharacters" />
 
     <TextView
         android:id="@+id/textView2"
@@ -64,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/userID"
-        android:text="@string/user_name"
+        android:text="@string/text_nome"
         android:textSize="8pt" />
 
     <EditText
@@ -81,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editText2"
-        android:text="@string/user_surname"
+        android:text="@string/text_cognome"
         android:textSize="8pt" />
 
     <EditText
@@ -98,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editText5"
-        android:text="@string/birth"
+        android:text="@string/text_data_nascita"
         android:textSize="8pt" />
 
     <EditText
@@ -107,7 +101,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView5"
-        android:inputType="date"
         android:hint="@string/hint_for_birth" />
 
     <TextView
@@ -116,7 +109,16 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editText3"
-        android:text="@string/medical_record"
+        android:text="@string/text_info_aggiuntive"
         android:textSize="8pt" />
+
+    <Button
+        android:id="@+id/buttonOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:text="@string/buttonOk" />
 
 </RelativeLayout>
