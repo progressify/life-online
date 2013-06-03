@@ -8,41 +8,40 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        
         <activity
             android:name="it.bdsir.life_online.MainActivitySummary"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        
         <activity
             android:name="it.bdsir.life_online.SoccorsoActivity"
             android:label="@string/title_activity_soccorso" >
         </activity>
-        
         <activity
             android:name="it.bdsir.life_online.ActivityMyPosition_"
             android:label="@string/title_activity_activity_my_position_" >
         </activity>
-        
         <activity
             android:name="it.bdsir.life_online.ActivityServiceInfo"
             android:label="@string/title_activity_activity_service_info" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-       
         <activity
             android:name="it.bdsir.life_online.ActivityDistressNotPersonal"
             android:label="@string/title_activity_activity_distress_not_personal" >
         </activity>
-    
     </application>
 
 </manifest>

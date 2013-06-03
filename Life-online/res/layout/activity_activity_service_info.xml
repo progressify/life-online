@@ -25,16 +25,16 @@
         android:background="#000000" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/edit_info_agg"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_below="@+id/textView4"
+        android:layout_alignLeft="@+id/text_info_agg"
+        android:layout_below="@+id/text_info_agg"
         android:hint="@string/hint_for_medical_information"
         android:inputType="textMultiLine" />
 
     <TextView
-        android:id="@+id/userIDLabel"
+        android:id="@+id/text_cod_fiscale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -44,71 +44,71 @@
         android:textSize="8pt" />
 
     <EditText
-        android:id="@+id/userID"
+        android:id="@+id/edit_cod_fiscale"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/userIDLabel"
+        android:layout_below="@+id/text_cod_fiscale"
         android:hint="@string/text_codice_fiscale"
         android:inputType="textCapCharacters" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/text_nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/userID"
+        android:layout_below="@+id/edit_cod_fiscale"
         android:text="@string/text_nome"
         android:textSize="8pt" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/edit_nome"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/text_nome"
         android:inputType="text" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/text_cognome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/edit_nome"
         android:text="@string/text_cognome"
         android:textSize="8pt" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/edit_cognome"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView6"
+        android:layout_below="@+id/text_cognome"
         android:inputType="text" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/text_data_nascita"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editText5"
+        android:layout_below="@+id/edit_cognome"
         android:text="@string/text_data_nascita"
         android:textSize="8pt" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/edit_data_nascita"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView5"
+        android:layout_below="@+id/text_data_nascita"
         android:hint="@string/hint_for_birth" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/text_info_agg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editText3"
+        android:layout_below="@+id/edit_data_nascita"
         android:text="@string/text_info_aggiuntive"
         android:textSize="8pt" />
 
@@ -116,7 +116,7 @@
         android:id="@+id/buttonOk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText4"
+        android:layout_below="@+id/edit_info_agg"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="27dp"
         android:text="@string/buttonOk" />
