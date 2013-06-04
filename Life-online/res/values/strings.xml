@@ -31,6 +31,7 @@
     <string name="buttonHelp2">Soccorso di Terzi</string>
     <string name="button_call">Chiamata</string>
     <string name="button_set">Imposta</string>
+    <string name="button_login">Login</string>
     <!-- suggerimenti -->
     <string name="hint_for_medical_information">Gruppo sanguigno, allergia note, patologie note, etc.. </string>
     <string name="hint_for_birth">gg/mm/aaaa</string>
@@ -57,5 +58,9 @@
         <item>Dolori da trauma</item>
         <item>Altro</item>
     </string-array>
+
+    <string name="title_activity_pager">PagerActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_login">LoginActivity</string>
 
 </resources>

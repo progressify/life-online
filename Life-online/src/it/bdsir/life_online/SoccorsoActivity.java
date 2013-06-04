@@ -1,22 +1,23 @@
 package it.bdsir.life_online;
 
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-public class SoccorsoActivity extends Activity {
+public class SoccorsoActivity extends Fragment {
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_soccorso);
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_soccorso, menu);
-		return true;
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        
+        View myView = inflater.inflate(R.layout.activity_soccorso, container, false);
+        
+        return myView;
 	}
 
 }

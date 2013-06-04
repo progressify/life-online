@@ -13,7 +13,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.location.Criteria;
@@ -24,36 +23,45 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
-public class ActivityDistressNotPersonal extends Activity implements OnClickListener{
+public class ActivityDistressNotPersonal extends Fragment implements OnClickListener{
 
 	private String ERROR_LOG="LO";
 	private ProgressDialog pd;
 	private Button button_invia;
 	private double lat,lon;
 	private Location location;
+	View myView;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_activity_distress_not_personal);
-		button_invia=(Button) findViewById(R.id.button_invia);
+
+
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+	}
+
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		myView = inflater.inflate(R.layout.activity_activity_distress_not_personal, container, false);
+
+		button_invia=(Button) myView.findViewById(R.id.button_invia);
 		button_invia.setOnClickListener(this);
-		pd=new ProgressDialog(this);
+		pd=new ProgressDialog(getActivity());
 		pd.setCancelable(false);
 		pd.setMessage(getResources().getString(R.string.progress_dialog_invio_segnalazione)); 
-		Spinner numeroPersone = (Spinner) findViewById(R.id.spinner_numero_feriti);
-		Spinner cause = (Spinner) findViewById(R.id.spinner_causa_malessere);
-		Spinner sintomi = (Spinner) findViewById(R.id.spinner_sintomi);
-		final ArrayAdapter<CharSequence> numPersoneBox = ArrayAdapter.createFromResource(this, R.array.num_persone, android.R.layout.simple_spinner_item);
-		final ArrayAdapter<CharSequence> causeBox = ArrayAdapter.createFromResource(this, R.array.cause, android.R.layout.simple_spinner_item);
-		final ArrayAdapter<CharSequence> sintomiBox = ArrayAdapter.createFromResource(this, R.array.sintomi, android.R.layout.simple_spinner_item);
+		Spinner numeroPersone = (Spinner) myView.findViewById(R.id.spinner_numero_feriti);
+		Spinner cause = (Spinner) myView.findViewById(R.id.spinner_causa_malessere);
+		Spinner sintomi = (Spinner) myView.findViewById(R.id.spinner_sintomi);
+		final ArrayAdapter<CharSequence> numPersoneBox = ArrayAdapter.createFromResource(getActivity(), R.array.num_persone, android.R.layout.simple_spinner_item);
+		final ArrayAdapter<CharSequence> causeBox = ArrayAdapter.createFromResource(getActivity(), R.array.cause, android.R.layout.simple_spinner_item);
+		final ArrayAdapter<CharSequence> sintomiBox = ArrayAdapter.createFromResource(getActivity(), R.array.sintomi, android.R.layout.simple_spinner_item);
 		numPersoneBox.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); 
 		causeBox.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		sintomiBox.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -61,25 +69,29 @@ public class ActivityDistressNotPersonal extends Activity implements OnClickList
 		cause.setAdapter(causeBox);
 		sintomi.setAdapter(sintomiBox);
 		_getLocation();
+
+		return myView;
 	}
+
+
 
 	@Override
 	public void onClick(View v) {
 		HttpGetTask task=null;
 		if (v.getId() == R.id.button_invia){
 			pd.show();
-			ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+			ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 			NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 			if (networkInfo != null && networkInfo.isConnected()) {
 				task = new HttpGetTask();
-				Spinner sp= (Spinner) findViewById(R.id.spinner_numero_feriti);
+				Spinner sp= (Spinner) myView.findViewById(R.id.spinner_numero_feriti);
 				String num_feriti=sp.getSelectedItem().toString();
 				Log.e(ERROR_LOG, "numero feriti: "+num_feriti);
 				task.execute("23423","pompieri","134234234,34545646",num_feriti,"terzi");
 			} else {
 				//chiudo la dialog e avviso che non c'è connessione
 				pd.dismiss();
-				Toast.makeText(this, R.string.toast_connection_unavailable ,Toast.LENGTH_LONG).show();
+				Toast.makeText(getActivity(), R.string.toast_connection_unavailable ,Toast.LENGTH_LONG).show();
 				return;
 			}
 		}
@@ -87,13 +99,12 @@ public class ActivityDistressNotPersonal extends Activity implements OnClickList
 
 	private void _getLocation() {
 		// Get the location manager
-		LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+		final LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
 		Criteria criteria = new Criteria();
 		criteria.setAccuracy(Criteria.ACCURACY_FINE); 
 		String bestProvider = locationManager.getBestProvider(criteria, true);
 		location = locationManager.getLastKnownLocation(bestProvider);
 		LocationListener loc_listener = new LocationListener() {
-
 			public void onLocationChanged(Location l) {
 				try {
 					lat = location.getLatitude();
@@ -102,15 +113,15 @@ public class ActivityDistressNotPersonal extends Activity implements OnClickList
 					lat = -1.0;
 					lon = -1.0;
 				}
-				Toast.makeText(ActivityDistressNotPersonal.this, lat+";"+lon ,Toast.LENGTH_LONG).show();
+				locationManager.removeUpdates(this);
+				Toast.makeText(getActivity(), lat+";"+lon ,Toast.LENGTH_LONG).show();
 			}
-
 			public void onProviderEnabled(String p) {}
 
 			public void onProviderDisabled(String p) {}
 
 			public void onStatusChanged(String p, int status, Bundle extras) {
-				Toast.makeText(ActivityDistressNotPersonal.this, lat+";"+lon ,Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), lat+";"+lon ,Toast.LENGTH_SHORT).show();
 			}
 		};
 		locationManager.requestLocationUpdates(bestProvider, 0, 0, loc_listener);
@@ -123,7 +134,7 @@ public class ActivityDistressNotPersonal extends Activity implements OnClickList
 			lon = -1.0;
 		}
 		Log.e(ERROR_LOG, lat+";"+lon);
-		Toast.makeText(this, lat+";"+lon ,Toast.LENGTH_SHORT).show();
+		Toast.makeText(getActivity(), lat+";"+lon ,Toast.LENGTH_SHORT).show();
 	}
 
 	private class HttpGetTask extends AsyncTask<String,String,String>  {
@@ -179,8 +190,8 @@ public class ActivityDistressNotPersonal extends Activity implements OnClickList
 		@Override
 		protected void onPostExecute(String result) {
 			pd.dismiss();
-			Toast.makeText(ActivityDistressNotPersonal.this, "Connessione riuscita" ,Toast.LENGTH_LONG).show();
-			
+			Toast.makeText(getActivity(), "Connessione riuscita" ,Toast.LENGTH_LONG).show();
+
 		}
 	}
 
