@@ -40,9 +40,9 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 	private Button button_invia;
 	private double lat,lon;
 	private Location location;
-	View myView;
-
-
+	private LocationListener loc_listener;
+	private LocationManager locationManager;
+	private View myView;
 
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
@@ -68,12 +68,29 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 		numeroPersone.setAdapter(numPersoneBox);
 		cause.setAdapter(causeBox);
 		sintomi.setAdapter(sintomiBox);
-		_getLocation();
 
 		return myView;
 	}
+	
+	public void onStart(){
+		super.onStart();
+		_getLocation();
+	}
+	
+	public void onResume() {
+	    super.onResume();
+	    _getLocation();
+	}
 
-
+	public void onPause() {
+	    super.onPause();
+	    locationManager.removeUpdates(loc_listener);
+	}
+	
+	public void onStop() {
+	    super.onPause();
+	    locationManager.removeUpdates(loc_listener);
+	}
 
 	@Override
 	public void onClick(View v) {
@@ -99,12 +116,12 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 
 	private void _getLocation() {
 		// Get the location manager
-		final LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+		locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
 		Criteria criteria = new Criteria();
 		criteria.setAccuracy(Criteria.ACCURACY_FINE); 
 		String bestProvider = locationManager.getBestProvider(criteria, true);
 		location = locationManager.getLastKnownLocation(bestProvider);
-		LocationListener loc_listener = new LocationListener() {
+		loc_listener = new LocationListener() {
 			public void onLocationChanged(Location l) {
 				try {
 					lat = location.getLatitude();
@@ -134,7 +151,7 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 			lon = -1.0;
 		}
 		Log.e(ERROR_LOG, lat+";"+lon);
-		Toast.makeText(getActivity(), lat+";"+lon ,Toast.LENGTH_SHORT).show();
+		//Toast.makeText(getActivity(), lat+";"+lon ,Toast.LENGTH_SHORT).show();
 	}
 
 	private class HttpGetTask extends AsyncTask<String,String,String>  {
