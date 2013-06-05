@@ -61,7 +61,7 @@ public class LoginActivity extends Activity implements OnClickListener{
 				task = new HttpGetTask();
 				task.execute(editUsr.getText().toString(),editPsw.getText().toString());
 			} else {
-				//chiudo la dialog e avviso che non c'è connessione
+				//chiudo la dialog e avviso che non c'ï¿½ connessione
 				pd.dismiss();
 				Toast.makeText(this, R.string.toast_connection_unavailable ,Toast.LENGTH_LONG).show();
 				return;
@@ -144,7 +144,7 @@ public class LoginActivity extends Activity implements OnClickListener{
 				jArray = new JSONArray(result);
 				Log.e(ERROR_LOG, "Lunghezza array trovato: "+jArray.length());
 				JSONObject json_data=null;
-				//se il login è andato a buon
+				//se il login Ã¨ andato a buon
 				if(jArray.length()==1){
 					json_data = jArray.getJSONObject(0);
 					Log.e(ERROR_LOG, "trovato id: "+json_data.getString("id"));							String id=json_data.getString("id");
@@ -163,7 +163,7 @@ public class LoginActivity extends Activity implements OnClickListener{
 					LoginActivity.this.finish();
 				}
 				else{
-					//se non è andato a buon fine il login restituisce un messaggio di errore e termina l'esecuzione del metodo
+					//se non Ã¨ andato a buon fine il login restituisce un messaggio di errore e termina l'esecuzione del metodo
 					pd.dismiss();
 					Toast.makeText(LoginActivity.this, getResources().getString(R.string.toast_login_failed_invalid_usrpsw) ,Toast.LENGTH_LONG).show();
 				}
@@ -171,7 +171,7 @@ public class LoginActivity extends Activity implements OnClickListener{
 			catch(JSONException e1){
 				pd.dismiss();
 				Log.e(ERROR_LOG, "Nessun dato trovato: "+e1);
-				//se non è andato a buon fine il login restituisce un messaggio di errore e termina l'esecuzione del metodo
+				//se non Ã¨ andato a buon fine il login restituisce un messaggio di errore e termina l'esecuzione del metodo
 				Toast.makeText(LoginActivity.this, getResources().getString(R.string.toast_login_failed_invalid_usrpsw) ,Toast.LENGTH_LONG).show();
 			} catch (ParseException e1) {
 				e1.printStackTrace();
@@ -181,7 +181,7 @@ public class LoginActivity extends Activity implements OnClickListener{
 				Log.e(ERROR_LOG, "Errore di rete");
 				Toast.makeText(LoginActivity.this, getResources().getString(R.string.toast_connection_unavailable) ,Toast.LENGTH_LONG).show();
 			}
-		}
+		}//fine asynctask
 
 		private void saveData(String... params) {
 			//id, username, password, nome, cod_fis, cogn, segni_part
@@ -224,7 +224,7 @@ public class LoginActivity extends Activity implements OnClickListener{
 				task = new HttpGetTask();
 				task.execute(editUsr.getText().toString(),editPsw.getText().toString());
 			} else {
-				//chiudo la dialog e avviso che non c'è connessione
+				//chiudo la dialog e avviso che non c'ï¿½ connessione
 				pd.dismiss();
 				Toast.makeText(this, R.string.toast_connection_unavailable ,Toast.LENGTH_LONG).show();
 				return;
