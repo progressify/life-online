@@ -6,12 +6,16 @@
     <string name="menu_settings">Impostazioni</string>
     <!-- toast -->
     <string name="toast_connection_unavailable">Connessione assente</string>
+    <string name="toast_login_failed_invalid_usrpsw">Dati non validi</string>
+    <string name="toast_login_failed_user">Inserisci l\'username</string>
+    <string name="toast_login_failed_psw">Inserisci la password</string>
+    <string name="toast_login_success">Login completato</string>
     <!-- text view -->
     <string name="text_tipi_di_soccorso">Tipo di soccorso</string>
     <string name="text_soccorso">Soccorso</string>
     <string name="text_soccorso_non_personale">Non Personale</string>
     <string name="text_numero_feriti">Numero Feriti</string>
-    <string name="text_causa">Causa Malessere</string>
+    <string name="text_causa">Causa</string>
     <string name="text_sintomi">Sintomi</string>
     <string name="text_informazioni_personali">Informazioni Personali</string>
     <string name="text_codice_fiscale">Codice fiscale</string>
@@ -35,10 +39,22 @@
     <!-- suggerimenti -->
     <string name="hint_for_medical_information">Gruppo sanguigno, allergia note, patologie note, etc.. </string>
     <string name="hint_for_birth">gg/mm/aaaa</string>
+    <string name="hint_login_username">Username</string>
+    <string name="hint_login_password">Password</string>
     <!-- progress dialog -->
     <string name="progress_dialog_invio_segnalazione">Invio della Segnalazione..</string>
+    <string name="progress_dialog_login">Login in corso..</string>
+    <!-- shared preferences -->
+    <string name="PREFERENCES_ID">id</string>
+    <string name="PREFERENCES_USR">user</string>
+    <string name="PREFERENCES_PSW">pass</string>
+    <string name="PREFERENCES_NOME">nome</string>
+    <string name="PREFERENCES_COD_FIS">cod_fis</string>
+    <string name="PREFERENCES_COGNOME">cognome</string>
+    <string name="PREFERENCES_SEGNI_PART">segni_part</string>
     <!-- array -->
     <string-array name="num_persone">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -53,10 +69,20 @@
         <item>Altro</item>
     </string-array>
     <string-array name="sintomi">
+        <item>Nessuno</item>
         <item>Difficoltà respiratorie</item>
         <item>Battito debole</item>
         <item>Dolori da trauma</item>
         <item>Altro</item>
+    </string-array>
+    <string-array name="array_enti">
+        <item>Polizia di Stato</item>
+        <item>Vigili del fuoco</item>
+        <item>Carabinieri</item>
+        <item>Emergenza sanitaria</item>
+        <item>Capitaneria di porto</item>
+        <item>Corpo forestale</item>
+        <item>Telefono Azzurro</item>
     </string-array>
 
     <string name="title_activity_pager">PagerActivity</string>

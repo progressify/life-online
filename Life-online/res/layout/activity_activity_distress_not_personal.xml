@@ -86,8 +86,7 @@
          android:layout_below="@+id/spinner_sintomi"
          android:layout_centerHorizontal="true"
          android:layout_marginTop="67dp"
-         android:background="@drawable/background_normal"
-         android:padding="20dip"
+         android:background="@drawable/background_orange"
          android:text="@string/button_invia" />
     
 </RelativeLayout>

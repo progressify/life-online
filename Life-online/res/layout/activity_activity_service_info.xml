@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:textStyle="italic|bold"
         android:text="@string/text_informazioni_personali"
         android:textSize="13pt" />
 
@@ -119,6 +120,7 @@
         android:layout_below="@+id/edit_info_agg"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="27dp"
+        android:background="@drawable/background_orange"
         android:text="@string/buttonOk" />
 
 </RelativeLayout>

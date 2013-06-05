@@ -29,36 +29,37 @@
         android:background="#000000" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/button_help"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/view1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="41dp"
-        android:background="#ff0000"
+        android:background="@drawable/background_red"
         android:text="@string/buttonHelp"
         android:textColor="#000000"
         android:textSize="10pt" />
 
     <Button
+        android:id="@+id/button_call"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button2"
+        android:layout_below="@+id/button_help_2"
         android:layout_marginTop="54dp"
-        android:background="#00BB00"
+        android:background="@drawable/background_green"
         android:text="@string/button_call"
         android:textColor="#000000"
         android:textSize="10pt" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_help_2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button1"
+        android:layout_below="@+id/button_help"
         android:layout_marginTop="48dp"
-        android:background="#ff9900"
+        android:background="@drawable/background_orange"
         android:text="@string/buttonHelp2"
         android:textColor="#000000"
         android:textSize="10pt" />

@@ -4,34 +4,38 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity" >
 
-    <EditText
-        android:id="@+id/edit_username"
+    <Button
+        android:id="@+id/button_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="126dp"
-        android:ems="10" >
-
-        <requestFocus />
-    </EditText>
+        android:layout_marginBottom="84dp"
+        android:background="@drawable/background_orange"
+        android:text="@string/button_login" />
 
     <EditText
         android:id="@+id/edit_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_username"
+        android:layout_above="@+id/button_login"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:ems="10" />
-
-    <Button
-        android:id="@+id/button_login"
+        android:layout_marginBottom="65dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/hint_login_password"
+        android:inputType="textPassword" />
+ 
+    <EditText
+        android:id="@+id/edit_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_password"
+        android:gravity="center"
+        android:layout_above="@+id/edit_password"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:text="@string/button_login" />
+        android:layout_marginBottom="28dp"
+        android:ems="10"
+        android:hint="@string/hint_login_username"
+        android:inputType="text" />
 
 </RelativeLayout>
