@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
 
 public class TitleAdapter extends FragmentPagerAdapter{
-	private String titles[] = new String[]{"Enti","Soccorso","Segnalazione", "Informazioni personali"}; 
+	private String titles[] = new String[]{"Enti","Soccorso","Segnalazione","Dove sei", "Informazioni personali"}; 
 	private Fragment frags[] = new Fragment[titles.length]; 
 
 	public TitleAdapter(FragmentManager fm) {
@@ -14,10 +14,10 @@ public class TitleAdapter extends FragmentPagerAdapter{
 		frags[0]= new MainActivitySummary();
 		frags[1] = new SoccorsoActivity();
 		frags[2] = new ActivityDistressNotPersonal();
-		frags[3] = new ActivityServiceInfo();
+		frags[4] = new ActivityServiceInfo();
+		frags[3] = new ActivityMyPosition_();
 	}
-
-	@Override
+	
 	public CharSequence getPageTitle (int position){
 		Log.v("TitleAdapter - getPageTitle=", titles[position]);
 		return titles[position];

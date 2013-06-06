@@ -35,23 +35,27 @@ public final class R {
         public static final int ic_launcher=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f090020;
-        public static final int buttonOk=0x7f090014;
-        public static final int button_call=0x7f09001d;
-        public static final int button_help=0x7f09001c;
-        public static final int button_help_2=0x7f09001e;
+        public static final int action_settings=0x7f090026;
+        public static final int buttonOk=0x7f09001f;
+        public static final int button_call=0x7f090023;
+        public static final int button_help=0x7f090022;
+        public static final int button_help_2=0x7f090024;
         public static final int button_invia=0x7f090008;
-        public static final int button_login=0x7f090015;
-        public static final int edit_cod_fiscale=0x7f09000d;
-        public static final int edit_cognome=0x7f090011;
-        public static final int edit_data_nascita=0x7f090013;
-        public static final int edit_info_agg=0x7f09000a;
-        public static final int edit_nome=0x7f09000f;
-        public static final int edit_password=0x7f090016;
-        public static final int edit_username=0x7f090017;
-        public static final int list=0x7f090019;
-        public static final int menu_settings=0x7f09001f;
-        public static final int pagerTabStrip=0x7f09001b;
+        public static final int button_login=0x7f09000b;
+        public static final int edit_cod_fiscale=0x7f090016;
+        public static final int edit_cognome=0x7f09001a;
+        public static final int edit_data_nascita=0x7f090021;
+        public static final int edit_info_agg=0x7f09001e;
+        public static final int edit_nome=0x7f090018;
+        public static final int edit_password=0x7f09000a;
+        public static final int edit_reg_data_nascita=0x7f09001c;
+        public static final int edit_reg_password=0x7f090014;
+        public static final int edit_reg_username=0x7f090012;
+        public static final int edit_username=0x7f090009;
+        public static final int list=0x7f09000d;
+        public static final int menu_settings=0x7f090025;
+        public static final int pagerTabStrip=0x7f09000f;
+        public static final int scrolla=0x7f090010;
         public static final int spinner_causa_malessere=0x7f090006;
         public static final int spinner_numero_feriti=0x7f090003;
         public static final int spinner_sintomi=0x7f090004;
@@ -59,24 +63,27 @@ public final class R {
         public static final int textView2=0x7f090001;
         public static final int textView3=0x7f090007;
         public static final int textView4=0x7f090005;
-        public static final int text_cod_fiscale=0x7f09000c;
-        public static final int text_cognome=0x7f090010;
-        public static final int text_data_nascita=0x7f090012;
-        public static final int text_info_agg=0x7f09000b;
-        public static final int text_nome=0x7f09000e;
-        public static final int title=0x7f090009;
-        public static final int txtmenuoption=0x7f090018;
+        public static final int text_cod_fiscale=0x7f090015;
+        public static final int text_cognome=0x7f090019;
+        public static final int text_data_nascita=0x7f09001b;
+        public static final int text_info_agg=0x7f09001d;
+        public static final int text_nome=0x7f090017;
+        public static final int text_password=0x7f090013;
+        public static final int text_username=0x7f090011;
+        public static final int title=0x7f090020;
+        public static final int txtmenuoption=0x7f09000c;
         public static final int view1=0x7f090000;
-        public static final int viewpager=0x7f09001a;
+        public static final int viewpager=0x7f09000e;
     }
     public static final class layout {
-        public static final int activity_activity_distress_not_personal=0x7f030000;
-        public static final int activity_activity_my_position_=0x7f030001;
-        public static final int activity_activity_service_info=0x7f030002;
-        public static final int activity_login=0x7f030003;
-        public static final int activity_main_activity_summary=0x7f030004;
-        public static final int activity_pager=0x7f030005;
-        public static final int activity_soccorso=0x7f030006;
+        public static final int activity_activity_my_position_=0x7f030000;
+        public static final int activity_distress_not_personal=0x7f030001;
+        public static final int activity_login=0x7f030002;
+        public static final int activity_main_activity_summary=0x7f030003;
+        public static final int activity_pager=0x7f030004;
+        public static final int activity_registration=0x7f030005;
+        public static final int activity_service_info=0x7f030006;
+        public static final int activity_soccorso=0x7f030007;
     }
     public static final class menu {
         public static final int activity_activity_distress_not_personal=0x7f080000;
@@ -84,31 +91,29 @@ public final class R {
         public static final int activity_activity_service_info=0x7f080002;
         public static final int activity_login=0x7f080003;
         public static final int activity_pager=0x7f080004;
-        public static final int activity_soccorso=0x7f080005;
-        public static final int main_activity_summary=0x7f080006;
+        public static final int initial_pager=0x7f080005;
+        public static final int registration=0x7f080006;
     }
     public static final class string {
-        public static final int PREFERENCES_COD_FIS=0x7f050029;
-        public static final int PREFERENCES_COGNOME=0x7f05002a;
+        public static final int PREFERENCES_COD_FIS=0x7f05002a;
+        public static final int PREFERENCES_COGNOME=0x7f05002b;
         /**  shared preferences 
          */
-        public static final int PREFERENCES_ID=0x7f050025;
-        public static final int PREFERENCES_NOME=0x7f050028;
-        public static final int PREFERENCES_PSW=0x7f050027;
-        public static final int PREFERENCES_SEGNI_PART=0x7f05002b;
-        public static final int PREFERENCES_USR=0x7f050026;
+        public static final int PREFERENCES_ID=0x7f050026;
+        public static final int PREFERENCES_NOME=0x7f050029;
+        public static final int PREFERENCES_PSW=0x7f050028;
+        public static final int PREFERENCES_SEGNI_PART=0x7f05002c;
+        public static final int PREFERENCES_USR=0x7f050027;
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
-        public static final int buttonHelp=0x7f050019;
-        public static final int buttonHelp2=0x7f05001b;
+        public static final int buttonHelp=0x7f05001a;
+        public static final int buttonHelp2=0x7f05001c;
         /**  Bottoni 
          */
-        public static final int buttonOk=0x7f050018;
-        public static final int button_call=0x7f05001c;
-        public static final int button_invia=0x7f05001a;
+        public static final int buttonOk=0x7f050019;
+        public static final int button_call=0x7f05001d;
+        public static final int button_invia=0x7f05001b;
         public static final int button_login=0x7f05001e;
-        public static final int button_set=0x7f05001d;
-        public static final int hello_world=0x7f05002d;
         public static final int hint_for_birth=0x7f050020;
         /**  suggerimenti 
          */
@@ -116,32 +121,33 @@ public final class R {
         public static final int hint_login_password=0x7f050022;
         public static final int hint_login_username=0x7f050021;
         public static final int menu_settings=0x7f050002;
+        public static final int popup_imposta_data=0x7f050008;
         /**  progress dialog 
          */
         public static final int progress_dialog_invio_segnalazione=0x7f050023;
         public static final int progress_dialog_login=0x7f050024;
-        public static final int text_causa=0x7f05000c;
-        public static final int text_codice_fiscale=0x7f05000f;
-        public static final int text_cognome=0x7f050011;
-        public static final int text_data_nascita=0x7f050013;
-        public static final int text_info_aggiuntive=0x7f050012;
-        public static final int text_informazioni_personali=0x7f05000e;
-        public static final int text_nome=0x7f050010;
-        public static final int text_numero_feriti=0x7f05000b;
-        public static final int text_sintomi=0x7f05000d;
-        public static final int text_soccorso=0x7f050009;
-        public static final int text_soccorso_non_personale=0x7f05000a;
+        public static final int progress_dialog_reg=0x7f050025;
+        public static final int text_causa=0x7f05000d;
+        public static final int text_codice_fiscale=0x7f050010;
+        public static final int text_cognome=0x7f050012;
+        public static final int text_data_nascita=0x7f050014;
+        public static final int text_info_aggiuntive=0x7f050013;
+        public static final int text_informazioni_personali=0x7f05000f;
+        public static final int text_nome=0x7f050011;
+        public static final int text_numero_feriti=0x7f05000c;
+        public static final int text_sintomi=0x7f05000e;
+        public static final int text_soccorso=0x7f05000a;
+        public static final int text_soccorso_non_personale=0x7f05000b;
         /**  text view 
          */
-        public static final int text_tipi_di_soccorso=0x7f050008;
-        public static final int title_activity_activity_distress_not_personal=0x7f050016;
+        public static final int text_tipi_di_soccorso=0x7f050009;
+        public static final int title_activity_activity_distress_not_personal=0x7f050017;
         /**  nome activity 
          */
-        public static final int title_activity_activity_my_position_=0x7f050014;
-        public static final int title_activity_activity_service_info=0x7f050015;
-        public static final int title_activity_login=0x7f05002e;
-        public static final int title_activity_pager=0x7f05002c;
-        public static final int title_activity_soccorso=0x7f050017;
+        public static final int title_activity_activity_my_position_=0x7f050015;
+        public static final int title_activity_activity_service_info=0x7f050016;
+        public static final int title_activity_registration=0x7f05002d;
+        public static final int title_activity_soccorso=0x7f050018;
         /**  toast 
          */
         public static final int toast_connection_unavailable=0x7f050003;

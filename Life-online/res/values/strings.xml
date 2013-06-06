@@ -10,6 +10,7 @@
     <string name="toast_login_failed_user">Inserisci l\'username</string>
     <string name="toast_login_failed_psw">Inserisci la password</string>
     <string name="toast_login_success">Login completato</string>
+    <string name="popup_imposta_data">Imposta Data</string>
     <!-- text view -->
     <string name="text_tipi_di_soccorso">Tipo di soccorso</string>
     <string name="text_soccorso">Soccorso</string>
@@ -34,7 +35,6 @@
     <string name="button_invia">Invia</string>
     <string name="buttonHelp2">Soccorso di Terzi</string>
     <string name="button_call">Chiamata</string>
-    <string name="button_set">Imposta</string>
     <string name="button_login">Login</string>
     <!-- suggerimenti -->
     <string name="hint_for_medical_information">Gruppo sanguigno, allergia note, patologie note, etc.. </string>
@@ -44,6 +44,7 @@
     <!-- progress dialog -->
     <string name="progress_dialog_invio_segnalazione">Invio della Segnalazione..</string>
     <string name="progress_dialog_login">Login in corso..</string>
+    <string name="progress_dialog_reg">Registrazione in corso..</string>
     <!-- shared preferences -->
     <string name="PREFERENCES_ID">id</string>
     <string name="PREFERENCES_USR">user</string>
@@ -85,8 +86,6 @@
         <item>Telefono Azzurro</item>
     </string-array>
 
-    <string name="title_activity_pager">PagerActivity</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_registration">RegistrationActivity</string>
 
 </resources>

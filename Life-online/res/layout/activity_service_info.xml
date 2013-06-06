@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:textStyle="italic|bold"
         android:text="@string/text_informazioni_personali"
-        android:textSize="13pt" />
+        android:textSize="13pt"
+        android:textStyle="italic|bold" />
 
     <View
         android:id="@+id/view1"

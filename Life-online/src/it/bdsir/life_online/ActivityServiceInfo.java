@@ -25,7 +25,7 @@ public class ActivityServiceInfo extends Fragment implements OnClickListener{
 	}
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		myView = inflater.inflate(R.layout.activity_activity_service_info, container, false);
+		myView = inflater.inflate(R.layout.activity_service_info, container, false);
 
 		editDataN=(EditText) myView.findViewById(R.id.edit_data_nascita);
 		editDataN.setInputType(InputType.TYPE_NULL);
@@ -47,7 +47,7 @@ public class ActivityServiceInfo extends Fragment implements OnClickListener{
 					editDataN.setText(calen.get(Calendar.DAY_OF_MONTH)+"-"+(calen.get(Calendar.MONTH)+1)+"-"+calen.get(Calendar.YEAR));
 				}
 			}, year, month, day);
-			dialogs.setTitle("Imposta Data");
+			dialogs.setTitle(getResources().getString(R.string.popup_imposta_data));
 			dialogs.show();
 		}
 	}

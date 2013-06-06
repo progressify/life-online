@@ -4,38 +4,38 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity" >
 
-    <Button
-        android:id="@+id/button_login"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/edit_username"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="84dp"
-        android:background="@drawable/background_orange"
-        android:text="@string/button_login" />
+        android:layout_marginTop="46dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/hint_login_username"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/edit_password"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button_login"
+        android:layout_below="@+id/edit_username"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="65dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/hint_login_password"
         android:inputType="textPassword" />
- 
-    <EditText
-        android:id="@+id/edit_username"
+
+    <Button
+        android:id="@+id/button_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_above="@+id/edit_password"
+        android:layout_below="@+id/edit_password"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="28dp"
-        android:ems="10"
-        android:hint="@string/hint_login_username"
-        android:inputType="text" />
+        android:layout_marginTop="43dp"
+        android:background="@drawable/background_orange"
+        android:text="@string/button_login" />
 
 </RelativeLayout>

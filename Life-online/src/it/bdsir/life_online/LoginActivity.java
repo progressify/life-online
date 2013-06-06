@@ -17,7 +17,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -27,63 +26,72 @@ import android.net.NetworkInfo;
 import android.net.ParseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class LoginActivity extends Activity implements OnClickListener{
+public class LoginActivity extends Fragment implements OnClickListener{
 
 	private ProgressDialog pd;
 	private String ERROR_LOG="LO";
 	private Button buttonLogin;
 	private EditText editUsr,editPsw;
+	private View myView;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
-		
-		pd=new ProgressDialog(LoginActivity.this);
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+	}
+
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		myView = inflater.inflate(R.layout.activity_login, container, false);
+
+		pd=new ProgressDialog(getActivity());
 		pd.setCancelable(false);
 		pd.setMessage(getResources().getString(R.string.progress_dialog_login));
-		
-		buttonLogin = (Button) findViewById(R.id.button_login);
+
+		buttonLogin = (Button) myView.findViewById(R.id.button_login);
 		buttonLogin.setOnClickListener(this);
-		
+
 		if(getData()){
+			pd.show();
 			HttpGetTask task;
-			ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+			ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 			NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 			if (networkInfo != null && networkInfo.isConnected()) {
 				task = new HttpGetTask();
 				task.execute(editUsr.getText().toString(),editPsw.getText().toString());
 			} else {
-				//chiudo la dialog e avviso che non c'� connessione
+				//chiudo la dialog e avviso che non c'� connessione
 				pd.dismiss();
-				Toast.makeText(this, R.string.toast_connection_unavailable ,Toast.LENGTH_LONG).show();
-				return;
+				Toast.makeText(getActivity(), R.string.toast_connection_unavailable ,Toast.LENGTH_LONG).show();
+				return getView();
 			}
 		}
+
+		return myView;
 	}
 
 	private boolean getData() {
-	        //richiama il file delle preferenze
-	        SharedPreferences prefs = getSharedPreferences(getResources().getString(R.string.app_name), MODE_PRIVATE);
-	        Map<String, ?> loginPrefs = prefs.getAll();
-	        //se non esistono preferenze preimpostate allora i campi saranno vuoti (la prima volta), altrimenti li riempie
-	        if(loginPrefs.size()!=0) {
-	            String user = prefs.getString(getResources().getString(R.string.PREFERENCES_USR), "");
-	            editUsr = (EditText) findViewById(R.id.edit_username);
-	            editUsr.setText(user);
-	            String psw =prefs.getString(getResources().getString(R.string.PREFERENCES_PSW), "");
-	            editPsw=(EditText) findViewById(R.id.edit_password);
-	            editPsw.setText(psw);
-	            return true;
-	        }
-	        return false;
+		//richiama il file delle preferenze
+		SharedPreferences prefs = getActivity().getSharedPreferences(getResources().getString(R.string.app_name), Context.MODE_PRIVATE);
+		Map<String, ?> loginPrefs = prefs.getAll();
+		//se non esistono preferenze preimpostate allora i campi saranno vuoti (la prima volta), altrimenti li riempie
+		if(loginPrefs.size()!=0) {
+			String user = prefs.getString(getResources().getString(R.string.PREFERENCES_USR), "");
+			editUsr = (EditText) myView.findViewById(R.id.edit_username);
+			editUsr.setText(user);
+			String psw =prefs.getString(getResources().getString(R.string.PREFERENCES_PSW), "");
+			editPsw=(EditText) myView.findViewById(R.id.edit_password);
+			editPsw.setText(psw);
+			return true;
+		}
+		return false;
 	}
 
 	private class HttpGetTask extends AsyncTask<String,String,String>  {
@@ -158,35 +166,35 @@ public class LoginActivity extends Activity implements OnClickListener{
 					pd.dismiss();
 					saveData(id, username, password, nome, cod_fis, cogn, segni_part);
 					//apre la HomeActivity, saluta e termina l'activity di login
-					Toast.makeText(LoginActivity.this, getResources().getString(R.string.toast_login_success) ,Toast.LENGTH_LONG).show();
-					startActivity(new Intent(LoginActivity.this, PagerActivity.class));
-					LoginActivity.this.finish();
+					Toast.makeText(getActivity(), getResources().getString(R.string.toast_login_success) ,Toast.LENGTH_LONG).show();
+					startActivity(new Intent(getActivity(), PagerActivity.class));
+					getActivity().finish();
 				}
 				else{
 					//se non è andato a buon fine il login restituisce un messaggio di errore e termina l'esecuzione del metodo
 					pd.dismiss();
-					Toast.makeText(LoginActivity.this, getResources().getString(R.string.toast_login_failed_invalid_usrpsw) ,Toast.LENGTH_LONG).show();
+					Toast.makeText(getActivity(), getResources().getString(R.string.toast_login_failed_invalid_usrpsw) ,Toast.LENGTH_LONG).show();
 				}
 			}
 			catch(JSONException e1){
 				pd.dismiss();
 				Log.e(ERROR_LOG, "Nessun dato trovato: "+e1);
 				//se non è andato a buon fine il login restituisce un messaggio di errore e termina l'esecuzione del metodo
-				Toast.makeText(LoginActivity.this, getResources().getString(R.string.toast_login_failed_invalid_usrpsw) ,Toast.LENGTH_LONG).show();
+				Toast.makeText(getActivity(), getResources().getString(R.string.toast_login_failed_invalid_usrpsw) ,Toast.LENGTH_LONG).show();
 			} catch (ParseException e1) {
 				e1.printStackTrace();
 			}
 			else{
 				pd.dismiss();
 				Log.e(ERROR_LOG, "Errore di rete");
-				Toast.makeText(LoginActivity.this, getResources().getString(R.string.toast_connection_unavailable) ,Toast.LENGTH_LONG).show();
+				Toast.makeText(getActivity(), getResources().getString(R.string.toast_connection_unavailable) ,Toast.LENGTH_LONG).show();
 			}
 		}//fine asynctask
 
 		private void saveData(String... params) {
 			//id, username, password, nome, cod_fis, cogn, segni_part
 			//richiama il file delle preferenze
-			SharedPreferences prefs = getSharedPreferences(getResources().getString(R.string.app_name), MODE_PRIVATE);
+			SharedPreferences prefs = getActivity().getSharedPreferences(getResources().getString(R.string.app_name), Context.MODE_PRIVATE);
 			//memorizza tutto nelle preferences
 			SharedPreferences.Editor prefsEditor = prefs.edit();
 			prefsEditor.putString(getResources().getString(R.string.PREFERENCES_ID), params[0]);
@@ -205,20 +213,20 @@ public class LoginActivity extends Activity implements OnClickListener{
 		if (v.getId()==R.id.button_login){
 			HttpGetTask task;
 			pd.show();
-			editUsr=(EditText) findViewById(R.id.edit_username);
-			editPsw=(EditText) findViewById(R.id.edit_password);
+			editUsr=(EditText) myView.findViewById(R.id.edit_username);
+			editPsw=(EditText) myView.findViewById(R.id.edit_password);
 			if(editUsr.getText().toString().equals("")){
 				pd.dismiss();
-				Toast.makeText(this, R.string.toast_login_failed_user ,Toast.LENGTH_LONG).show();
+				Toast.makeText(getActivity(), R.string.toast_login_failed_user ,Toast.LENGTH_LONG).show();
 				return;
 			}
 			if(editPsw.getText().toString().equals("")){
 				pd.dismiss();
-				Toast.makeText(this, R.string.toast_login_failed_psw ,Toast.LENGTH_LONG).show();
+				Toast.makeText(getActivity(), R.string.toast_login_failed_psw ,Toast.LENGTH_LONG).show();
 				return;
 			}
 			//fa il login
-			ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+			ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 			NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 			if (networkInfo != null && networkInfo.isConnected()) {
 				task = new HttpGetTask();
@@ -226,7 +234,7 @@ public class LoginActivity extends Activity implements OnClickListener{
 			} else {
 				//chiudo la dialog e avviso che non c'� connessione
 				pd.dismiss();
-				Toast.makeText(this, R.string.toast_connection_unavailable ,Toast.LENGTH_LONG).show();
+				Toast.makeText(getActivity(), R.string.toast_connection_unavailable ,Toast.LENGTH_LONG).show();
 				return;
 			}
 		}

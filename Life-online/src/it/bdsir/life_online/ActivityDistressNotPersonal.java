@@ -49,7 +49,7 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 	}
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		myView = inflater.inflate(R.layout.activity_activity_distress_not_personal, container, false);
+		myView = inflater.inflate(R.layout.activity_distress_not_personal, container, false);
 
 		button_invia=(Button) myView.findViewById(R.id.button_invia);
 		button_invia.setOnClickListener(this);
@@ -72,24 +72,19 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 		return myView;
 	}
 	
-	public void onStart(){
-		super.onStart();
-		_getLocation();
-	}
-	
 	public void onResume() {
 	    super.onResume();
 	    _getLocation();
 	}
 
 	public void onPause() {
-	    super.onPause();
 	    locationManager.removeUpdates(loc_listener);
+	    super.onPause();
 	}
 	
 	public void onStop() {
-	    super.onPause();
 	    locationManager.removeUpdates(loc_listener);
+	    super.onStop();
 	}
 
 	@Override

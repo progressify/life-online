@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 
-public class PagerActivity extends FragmentActivity {
+public class PagerActivity extends FragmentActivity { 
 	ViewPager mViewPager;
 
 	@Override
@@ -14,9 +14,11 @@ public class PagerActivity extends FragmentActivity {
 		setContentView(R.layout.activity_pager);
 		mViewPager = (ViewPager) findViewById(R.id.viewpager);
 		//PagerTabStrip pagerTabStrip = (PagerTabStrip) findViewById(R.id.pagerTabStrip);
+		//pagerTabStrip.set;
 		TitleAdapter titleAdapter = new TitleAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(titleAdapter);
         mViewPager.setCurrentItem(0);	
+        //titleAdapter.getItem(position);
 	}
 
 	@Override
