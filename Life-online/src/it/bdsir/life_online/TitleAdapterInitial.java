@@ -6,13 +6,14 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
 
 public class TitleAdapterInitial extends FragmentPagerAdapter{
-	private String titles[] = new String[]{"Login","Registrazione",}; 
+	private String titles[] = new String[]{"Enti","Login","Registrazione",}; 
 	private Fragment frags[] = new Fragment[titles.length]; 
 
 	public TitleAdapterInitial(FragmentManager fm) {
 		super(fm);
-		frags[0]= new LoginActivity();
-		frags[1] = new RegistrationActivity();
+		frags[0]= new MainActivitySummary();
+		frags[1]= new LoginActivity();
+		frags[2] = new RegistrationActivity();
 	}
 
 	@Override

@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 
 public class InitialPagerActivity extends FragmentActivity {
 	ViewPager mViewPager;
+	Singleton sing = Singleton.getInstance();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -16,5 +17,6 @@ public class InitialPagerActivity extends FragmentActivity {
 		TitleAdapterInitial titleAdapter = new TitleAdapterInitial(getSupportFragmentManager());
         mViewPager.setAdapter(titleAdapter);
         mViewPager.setCurrentItem(0);	
+        sing.del();
 	}
 }

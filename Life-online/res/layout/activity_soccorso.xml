@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,59 +9,59 @@
     android:textAlignment="center"
     tools:context=".SoccorsoActivity" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/text_soccorso"
-        android:textColor="#000000"
-        android:textSize="13pt"
-        android:textStyle="italic|bold" />
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical" >
 
-    <View
-        android:id="@+id/view1"
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
-        android:background="#000000" />
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_soccorso"
+            android:textColor="#000000"
+            android:textSize="13pt"
+            android:textStyle="italic|bold" />
 
-    <Button
-        android:id="@+id/button_help"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/view1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="41dp"
-        android:background="@drawable/background_red"
-        android:text="@string/buttonHelp"
-        android:textColor="#000000"
-        android:textSize="10pt" />
+        <View
+            android:id="@+id/view1"
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#000000" />
 
-    <Button
-        android:id="@+id/button_call"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button_help_2"
-        android:layout_marginTop="54dp"
-        android:background="@drawable/background_green"
-        android:text="@string/button_call"
-        android:textColor="#000000"
-        android:textSize="10pt" />
+        <Button
+            android:id="@+id/button_help"
+            android:layout_width="@dimen/size_button"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="41dp"
+            android:background="@drawable/background_red"
+            android:text="@string/buttonHelp"
+            android:textColor="#000000"
+            android:textSize="10pt" />
 
-    <Button
-        android:id="@+id/button_help_2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button_help"
-        android:layout_marginTop="48dp"
-        android:background="@drawable/background_orange"
-        android:text="@string/buttonHelp2"
-        android:textColor="#000000"
-        android:textSize="10pt" />
+        <Button
+            android:id="@+id/button_help_2"
+            android:layout_width="@dimen/size_button"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/background_orange"
+            android:text="@string/buttonHelp2"
+            android:textColor="#000000"
+            android:textSize="10pt" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/button_call"
+            android:layout_width="@dimen/size_button"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="54dp"
+            android:background="@drawable/background_green"
+            android:text="@string/button_call"
+            android:textColor="#000000"
+            android:textSize="10pt" />
+    </LinearLayout>
+
+</ScrollView>

@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Life-online</string>
-    <string name="action_settings">Impostzioni</string>
+    <string name="action_settings">Impostazioni</string>
     <string name="menu_settings">Impostazioni</string>
     <!-- toast -->
     <string name="toast_connection_unavailable">Connessione assente</string>
@@ -10,7 +10,23 @@
     <string name="toast_login_failed_user">Inserisci l\'username</string>
     <string name="toast_login_failed_psw">Inserisci la password</string>
     <string name="toast_login_success">Login completato</string>
+    <string name="toast_username_vuoto">Inserisci un username</string>
+    <string name="toast_password_vuoto">Inserisci una password</string>
+    <string name="toast_nome_vuoto">Inserisci un nome</string>
+    <string name="toast_codf_vuoto">Inserisci un codice fiscale</string>
+    <string name="toast_congnome_vuoto">Inserisci un cognome</string>
+    <string name="toast_datan_vuoto">Inserisci una data di nascita</string>
+    <string name="toast_reg_problema">Problema registrazione</string>
+    <string name="toast_soccorso_non_personale">Inserisci i dati della segnalazione</string>
+    <string name="toast_gps_unavailable">Attendi il fix del GPS</string>
+    <string name="toast_distress_segnalazione">Segnalazione inviata</string>
+    <string name="toast_main_seleziona">selezionato, ora scegli la segnalazione</string>
+    <string name="toast_soccorso_seleziona_ente">Seleziona prima un ente dalla lista</string>
     <string name="popup_imposta_data">Imposta Data</string>
+    <string name="popup_titolo_gps">Impostazioni GPS</string>
+    <string name="popup_messaggio_gps">Il GPS non è abilitato. Per l\'invio della segnalazione è obbligatorio poter rilevare la tua posizione. Abilita il GPS dalle impostazioni</string>
+    <string name="popup_bottone_no_gps">Annulla</string>
+    <string name="popup_bottone_si_gps">Vai alle impostazioni</string>
     <!-- text view -->
     <string name="text_tipi_di_soccorso">Tipo di soccorso</string>
     <string name="text_soccorso">Soccorso</string>
@@ -41,6 +57,8 @@
     <string name="hint_for_birth">gg/mm/aaaa</string>
     <string name="hint_login_username">Username</string>
     <string name="hint_login_password">Password</string>
+    <string name="hint_sintomi_agg">Inserisci i sintomi riscontrati</string>
+    <string name="text_sintomi_agg">Altri sintomi</string>
     <!-- progress dialog -->
     <string name="progress_dialog_invio_segnalazione">Invio della Segnalazione..</string>
     <string name="progress_dialog_login">Login in corso..</string>
@@ -50,6 +68,7 @@
     <string name="PREFERENCES_USR">user</string>
     <string name="PREFERENCES_PSW">pass</string>
     <string name="PREFERENCES_NOME">nome</string>
+    <string name="PREFERENCES_DATAN">datanasc</string>
     <string name="PREFERENCES_COD_FIS">cod_fis</string>
     <string name="PREFERENCES_COGNOME">cognome</string>
     <string name="PREFERENCES_SEGNI_PART">segni_part</string>

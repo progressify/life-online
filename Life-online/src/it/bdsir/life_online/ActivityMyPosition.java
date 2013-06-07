@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ActivityMyPosition_ extends Fragment {
+public class ActivityMyPosition extends Fragment {
 	
 	private View myView;
 

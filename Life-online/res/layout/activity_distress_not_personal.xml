@@ -13,7 +13,6 @@
         android:id="@+id/view1"
         android:layout_width="fill_parent"
         android:layout_height="2dp"
-        android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView1"
         android:background="#000000" />
 
@@ -27,66 +26,87 @@
         android:textSize="13pt"
         android:textStyle="italic|bold" />
 
-    <Spinner
-        android:id="@+id/spinner_numero_feriti"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView2" />
+    <ScrollView
+        android:id="@+id/scrolla"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/view1" >
 
-    <Spinner
-        android:id="@+id/spinner_sintomi"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_below="@+id/textView4" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical" >
 
-    <Spinner
-        android:id="@+id/spinner_causa_malessere"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_below="@+id/textView3" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="@string/text_numero_feriti"
+                android:textSize="8pt"
+                android:textStyle="italic|bold" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/spinner_numero_feriti"
-        android:layout_below="@+id/spinner_numero_feriti"
-        android:text="@string/text_causa"
-        android:textSize="8pt"
-        android:textStyle="italic|bold" />
+            <Spinner
+                android:id="@+id/spinner_numero_feriti"
+                android:layout_width="@dimen/size_spinner"
+                android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_below="@+id/spinner_causa_malessere"
-        android:text="@string/text_sintomi"
-        android:textSize="8pt"
-        android:textStyle="italic|bold" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_causa"
+                android:textSize="8pt"
+                android:textStyle="italic|bold" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/spinner_numero_feriti"
-        android:layout_below="@+id/view1"
-        android:layout_marginTop="14dp"
-        android:text="@string/text_numero_feriti"
-        android:textSize="8pt"
-        android:textStyle="italic|bold" />
+            <Spinner
+                android:id="@+id/spinner_causa_malessere"
+                android:layout_width="@dimen/size_spinner"
+                android:layout_height="wrap_content" />
 
-     <Button
-         android:id="@+id/button_invia"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_below="@+id/spinner_sintomi"
-         android:layout_centerHorizontal="true"
-         android:layout_marginTop="67dp"
-         android:background="@drawable/background_orange"
-         android:text="@string/button_invia" />
-    
+            <TextView
+                android:id="@+id/text_sintomi"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_sintomi"
+                android:textSize="8pt"
+                android:textStyle="italic|bold"
+                android:visibility="invisible" />
+
+            <Spinner
+                android:id="@+id/spinner_sintomi"
+                android:layout_width="@dimen/size_spinner"
+                android:layout_height="wrap_content"
+                android:visibility="invisible" />
+            
+            <TextView
+                android:id="@+id/text_sintomi_agg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_sintomi_agg"
+                android:textSize="8pt"
+                android:textStyle="italic|bold"
+                android:visibility="invisible" />
+            
+               <EditText
+                android:id="@+id/edit_sintomi_agg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:visibility="invisible"
+                android:hint="@string/hint_sintomi_agg"
+                android:inputType="textMultiLine" />
+
+            <Button
+                android:id="@+id/button_invia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/background_orange"
+                android:text="@string/button_invia" />
+        </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>

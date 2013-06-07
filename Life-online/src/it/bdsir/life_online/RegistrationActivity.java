@@ -18,10 +18,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.DatePickerDialog;
-import android.app.ProgressDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.ParseException;
@@ -32,8 +33,8 @@ import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -64,7 +65,12 @@ public class RegistrationActivity extends Fragment implements OnClickListener {
 		editDataN.setInputType(InputType.TYPE_NULL);
 		editDataN.setFocusable(false);
 		editDataN.setOnClickListener(this);
-		
+		editUsername=(EditText)myView.findViewById(R.id.edit_reg_username);
+		editPassword=(EditText)myView.findViewById(R.id.edit_reg_password);
+		editCodiceFis=(EditText)myView.findViewById(R.id.edit_cod_fiscale);
+		editNome=(EditText)myView.findViewById(R.id.edit_nome);
+		editCogn=(EditText)myView.findViewById(R.id.edit_cognome);
+		editInfoAgg=(EditText)myView.findViewById(R.id.edit_info_agg);
 
 		return myView;
 	}
@@ -73,20 +79,50 @@ public class RegistrationActivity extends Fragment implements OnClickListener {
 	public void onClick(View v) {
 		if (v.getId()==R.id.buttonOk){
 			pd.show();
+			if (editUsername.getText().toString().equals("")){
+				pd.dismiss();
+				Toast.makeText(getActivity(), R.string.toast_username_vuoto ,Toast.LENGTH_LONG).show();
+				return;
+			}
+			if (editPassword.getText().toString().equals("")){
+				pd.dismiss();
+				Toast.makeText(getActivity(), R.string.toast_password_vuoto ,Toast.LENGTH_LONG).show();
+				return;
+			}
+			if (editCodiceFis.getText().toString().equals("")){
+				pd.dismiss();
+				Toast.makeText(getActivity(), R.string.toast_codf_vuoto ,Toast.LENGTH_LONG).show();
+				return;
+			}
+			if (editNome.getText().toString().equals("")){
+				pd.dismiss();
+				Toast.makeText(getActivity(), R.string.toast_nome_vuoto ,Toast.LENGTH_LONG).show();
+				return;
+			}
+			if (editCogn.getText().toString().equals("")){
+				pd.dismiss();
+				Toast.makeText(getActivity(), R.string.toast_congnome_vuoto ,Toast.LENGTH_LONG).show();
+				return;
+			}
+			if (editDataN.getText().toString().equals("")){
+				pd.dismiss();
+				Toast.makeText(getActivity(), R.string.toast_datan_vuoto ,Toast.LENGTH_LONG).show();
+				return;
+			}
 			HttpGetTask task;
 			ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 			NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 			if (networkInfo != null && networkInfo.isConnected()) {
 				task = new HttpGetTask();
-				task.execute(editUsername.getText().toString(),editPassword.getText().toString());
+				task.execute(editUsername.getText().toString(),editPassword.getText().toString(),editNome.getText().toString(),"utente",editCodiceFis.getText().toString(),editCogn.getText().toString(),editInfoAgg.getText().toString());
 			} else {
-				//chiudo la dialog e avviso che non c'ï¿½ connessione
+				//chiudo la dialog e avviso che non c'è connessione
 				pd.dismiss();
 				Toast.makeText(getActivity(), R.string.toast_connection_unavailable ,Toast.LENGTH_LONG).show();
 				return;
 			}
 		}
-		if (v.getId()==R.id.edit_data_nascita){
+		if (v.getId()==R.id.edit_reg_data_nascita){
 			int year = calen.get(Calendar.YEAR);
 			int month = calen.get(Calendar.MONTH);
 			int day = calen.get(Calendar.DAY_OF_MONTH);
@@ -118,7 +154,8 @@ public class RegistrationActivity extends Fragment implements OnClickListener {
 			HttpClient client=null;
 			// interrogazione del web service
 			try {
-				String url="http://lifeonline.altervista.org/app/logger.php?usr="+params[0]+"&psw="+params[1];
+				String url="http://lifeonline.altervista.org/app/registrazione.php?username="+params[0]+"&password="+params[1]+"&nome="+params[2]+"&tipo="+params[3]+"&fiscale="+params[4]+"&cognome="+params[5]+"&segni="+params[6]+"&data_nascita"+params[7];
+				url=url.replace(" ", "%20");
 				Log.e(ERROR_LOG,"URL: "+url);
 				client = new DefaultHttpClient();
 				final HttpParams httpParams = client.getParams();
@@ -169,25 +206,26 @@ public class RegistrationActivity extends Fragment implements OnClickListener {
 					Log.e(ERROR_LOG, "trovato user: "+json_data.getString("codice_fiscale"));			String cod_fis=json_data.getString("codice_fiscale");
 					Log.e(ERROR_LOG, "trovato user: "+json_data.getString("cognome"));					String cogn=json_data.getString("cognome");
 					Log.e(ERROR_LOG, "trovato user: "+json_data.getString("segni_particolari"));		String segni_part=json_data.getString("segni_particolari");
+					Log.e(ERROR_LOG, "trovato user: "+json_data.getString("data_nascita"));				String datanasc=json_data.getString("data_nascita");
 					//chiudo la progressDialog dopo fatto il login e salvo tutto nelle shared preferences
 					pd.dismiss();
-					//saveData(id, username, password, nome, cod_fis, cogn, segni_part);
+					saveData(id, username, password, nome, cod_fis, cogn, segni_part, datanasc);
 					//apre la HomeActivity, saluta e termina l'activity di login
-					Toast.makeText(getActivity(), getResources().getString(R.string.toast_login_success) ,Toast.LENGTH_LONG).show();
+					Toast.makeText(getActivity(), getResources().getString(R.string.toast_login_success) ,Toast.LENGTH_SHORT).show();
 					startActivity(new Intent(getActivity(), PagerActivity.class));
 					getActivity().finish();
 				}
 				else{
-					//se non Ã¨ andato a buon fine il login restituisce un messaggio di errore e termina l'esecuzione del metodo
+					//se non è andato a buon fine il login restituisce un messaggio di errore e termina l'esecuzione del metodo
 					pd.dismiss();
-					Toast.makeText(getActivity(), getResources().getString(R.string.toast_login_failed_invalid_usrpsw) ,Toast.LENGTH_LONG).show();
+					Toast.makeText(getActivity(), getResources().getString(R.string.toast_login_failed_invalid_usrpsw) ,Toast.LENGTH_SHORT).show();
 				}
 			}
 			catch(JSONException e1){
 				pd.dismiss();
 				Log.e(ERROR_LOG, "Nessun dato trovato: "+e1);
 				//se non Ã¨ andato a buon fine il login restituisce un messaggio di errore e termina l'esecuzione del metodo
-				Toast.makeText(getActivity(), getResources().getString(R.string.toast_login_failed_invalid_usrpsw) ,Toast.LENGTH_LONG).show();
+				Toast.makeText(getActivity(), getResources().getString(R.string.toast_reg_problema) ,Toast.LENGTH_LONG).show();
 			} catch (ParseException e1) {
 				e1.printStackTrace();
 			}
@@ -197,5 +235,22 @@ public class RegistrationActivity extends Fragment implements OnClickListener {
 				Toast.makeText(getActivity(), getResources().getString(R.string.toast_connection_unavailable) ,Toast.LENGTH_LONG).show();
 			}
 		}//fine asynctask
+	}
+
+	private void saveData(String... params) {
+		//id, username, password, nome, cod_fis, cogn, segni_part, data
+		//richiama il file delle preferenze
+		SharedPreferences prefs = getActivity().getSharedPreferences(getResources().getString(R.string.app_name), Context.MODE_PRIVATE);
+		//memorizza tutto nelle preferences
+		SharedPreferences.Editor prefsEditor = prefs.edit();
+		prefsEditor.putString(getResources().getString(R.string.PREFERENCES_ID), params[0]);
+		prefsEditor.putString(getResources().getString(R.string.PREFERENCES_USR), params[1]);
+		prefsEditor.putString(getResources().getString(R.string.PREFERENCES_PSW), params[2]);
+		prefsEditor.putString(getResources().getString(R.string.PREFERENCES_NOME), params[3]);
+		prefsEditor.putString(getResources().getString(R.string.PREFERENCES_COD_FIS), params[4]);
+		prefsEditor.putString(getResources().getString(R.string.PREFERENCES_COGNOME), params[5]);
+		prefsEditor.putString(getResources().getString(R.string.PREFERENCES_SEGNI_PART), params[6]);
+		prefsEditor.putString(getResources().getString(R.string.PREFERENCES_DATAN), params[7]);
+		prefsEditor.commit();
 	}
 }

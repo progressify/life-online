@@ -27,6 +27,7 @@ import android.net.ParseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,6 +44,8 @@ public class LoginActivity extends Fragment implements OnClickListener{
 	private Button buttonLogin;
 	private EditText editUsr,editPsw;
 	private View myView;
+	private ViewPager vp;
+	private Singleton sing = Singleton.getInstance();
 
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
@@ -54,7 +57,7 @@ public class LoginActivity extends Fragment implements OnClickListener{
 		pd=new ProgressDialog(getActivity());
 		pd.setCancelable(false);
 		pd.setMessage(getResources().getString(R.string.progress_dialog_login));
-
+		vp= (ViewPager) getActivity().findViewById(R.id.viewpager);
 		buttonLogin = (Button) myView.findViewById(R.id.button_login);
 		buttonLogin.setOnClickListener(this);
 
@@ -70,10 +73,9 @@ public class LoginActivity extends Fragment implements OnClickListener{
 				//chiudo la dialog e avviso che non c'� connessione
 				pd.dismiss();
 				Toast.makeText(getActivity(), R.string.toast_connection_unavailable ,Toast.LENGTH_LONG).show();
-				return getView();
+				vp.setCurrentItem(0);
 			}
 		}
-
 		return myView;
 	}
 
@@ -159,28 +161,29 @@ public class LoginActivity extends Fragment implements OnClickListener{
 					Log.e(ERROR_LOG, "trovato user: "+json_data.getString("username"));					String username=json_data.getString("username");
 					Log.e(ERROR_LOG, "trovato pass: "+json_data.getString("password"));					String password=json_data.getString("password");
 					Log.e(ERROR_LOG, "trovato nome: "+json_data.getString("nome"));						String nome=json_data.getString("nome");
-					Log.e(ERROR_LOG, "trovato user: "+json_data.getString("codice_fiscale"));			String cod_fis=json_data.getString("codice_fiscale");
-					Log.e(ERROR_LOG, "trovato user: "+json_data.getString("cognome"));					String cogn=json_data.getString("cognome");
-					Log.e(ERROR_LOG, "trovato user: "+json_data.getString("segni_particolari"));		String segni_part=json_data.getString("segni_particolari");
+					Log.e(ERROR_LOG, "trovato cod: "+json_data.getString("codice_fiscale"));			String cod_fis=json_data.getString("codice_fiscale");
+					Log.e(ERROR_LOG, "trovato cogn: "+json_data.getString("cognome"));					String cogn=json_data.getString("cognome");
+					Log.e(ERROR_LOG, "trovato segn: "+json_data.getString("segni_particolari"));		String segni_part=json_data.getString("segni_particolari");
+					Log.e(ERROR_LOG, "trovato datan: "+json_data.getString("data_nascita"));			String datanasc=json_data.getString("data_nascita");
 					//chiudo la progressDialog dopo fatto il login e salvo tutto nelle shared preferences
 					pd.dismiss();
-					saveData(id, username, password, nome, cod_fis, cogn, segni_part);
+					saveData(id, username, password, nome, cod_fis, cogn, segni_part,datanasc);
 					//apre la HomeActivity, saluta e termina l'activity di login
-					Toast.makeText(getActivity(), getResources().getString(R.string.toast_login_success) ,Toast.LENGTH_LONG).show();
+					Toast.makeText(getActivity(), getResources().getString(R.string.toast_login_success) ,Toast.LENGTH_SHORT).show();
 					startActivity(new Intent(getActivity(), PagerActivity.class));
 					getActivity().finish();
 				}
 				else{
 					//se non è andato a buon fine il login restituisce un messaggio di errore e termina l'esecuzione del metodo
 					pd.dismiss();
-					Toast.makeText(getActivity(), getResources().getString(R.string.toast_login_failed_invalid_usrpsw) ,Toast.LENGTH_LONG).show();
+					Toast.makeText(getActivity(), getResources().getString(R.string.toast_login_failed_invalid_usrpsw) ,Toast.LENGTH_SHORT).show();
 				}
 			}
 			catch(JSONException e1){
 				pd.dismiss();
 				Log.e(ERROR_LOG, "Nessun dato trovato: "+e1);
 				//se non è andato a buon fine il login restituisce un messaggio di errore e termina l'esecuzione del metodo
-				Toast.makeText(getActivity(), getResources().getString(R.string.toast_login_failed_invalid_usrpsw) ,Toast.LENGTH_LONG).show();
+				Toast.makeText(getActivity(), getResources().getString(R.string.toast_login_failed_invalid_usrpsw) ,Toast.LENGTH_SHORT).show();
 			} catch (ParseException e1) {
 				e1.printStackTrace();
 			}
@@ -198,12 +201,14 @@ public class LoginActivity extends Fragment implements OnClickListener{
 			//memorizza tutto nelle preferences
 			SharedPreferences.Editor prefsEditor = prefs.edit();
 			prefsEditor.putString(getResources().getString(R.string.PREFERENCES_ID), params[0]);
+			sing.setId(params[0]);
 			prefsEditor.putString(getResources().getString(R.string.PREFERENCES_USR), params[1]);
 			prefsEditor.putString(getResources().getString(R.string.PREFERENCES_PSW), params[2]);
 			prefsEditor.putString(getResources().getString(R.string.PREFERENCES_NOME), params[3]);
 			prefsEditor.putString(getResources().getString(R.string.PREFERENCES_COD_FIS), params[4]);
 			prefsEditor.putString(getResources().getString(R.string.PREFERENCES_COGNOME), params[5]);
 			prefsEditor.putString(getResources().getString(R.string.PREFERENCES_SEGNI_PART), params[6]);
+			prefsEditor.putString(getResources().getString(R.string.PREFERENCES_DATAN), params[7]);
 			prefsEditor.commit();
 		}
 	}
@@ -217,12 +222,12 @@ public class LoginActivity extends Fragment implements OnClickListener{
 			editPsw=(EditText) myView.findViewById(R.id.edit_password);
 			if(editUsr.getText().toString().equals("")){
 				pd.dismiss();
-				Toast.makeText(getActivity(), R.string.toast_login_failed_user ,Toast.LENGTH_LONG).show();
+				Toast.makeText(getActivity(), R.string.toast_login_failed_user ,Toast.LENGTH_SHORT).show();
 				return;
 			}
 			if(editPsw.getText().toString().equals("")){
 				pd.dismiss();
-				Toast.makeText(getActivity(), R.string.toast_login_failed_psw ,Toast.LENGTH_LONG).show();
+				Toast.makeText(getActivity(), R.string.toast_login_failed_psw ,Toast.LENGTH_SHORT).show();
 				return;
 			}
 			//fa il login
@@ -235,7 +240,7 @@ public class LoginActivity extends Fragment implements OnClickListener{
 				//chiudo la dialog e avviso che non c'� connessione
 				pd.dismiss();
 				Toast.makeText(getActivity(), R.string.toast_connection_unavailable ,Toast.LENGTH_LONG).show();
-				return;
+				vp.setCurrentItem(0);
 			}
 		}
 	}

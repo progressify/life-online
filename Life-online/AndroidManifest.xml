@@ -11,6 +11,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    
 
     <application
         android:allowBackup="true"
@@ -26,7 +28,7 @@
             android:label="@string/title_activity_soccorso" >
         </activity>
         <activity
-            android:name="it.bdsir.life_online.ActivityMyPosition_"
+            android:name="it.bdsir.life_online.ActivityMyPosition"
             android:label="@string/title_activity_activity_my_position_" >
         </activity>
         <activity

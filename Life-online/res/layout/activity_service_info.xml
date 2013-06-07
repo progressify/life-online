@@ -11,116 +11,132 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
         android:text="@string/text_informazioni_personali"
         android:textSize="13pt"
         android:textStyle="italic|bold" />
 
     <View
         android:id="@+id/view1"
+        android:layout_below="@+id/title"
         android:layout_width="fill_parent"
         android:layout_height="2dp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/title"
+        android:layout_marginBottom="5dp"
         android:background="#000000" />
 
-    <EditText
-        android:id="@+id/edit_info_agg"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/text_info_agg"
-        android:layout_below="@+id/text_info_agg"
-        android:hint="@string/hint_for_medical_information"
-        android:inputType="textMultiLine" />
-
-    <TextView
-        android:id="@+id/text_cod_fiscale"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+    <ScrollView
         android:layout_below="@+id/view1"
-        android:layout_marginTop="18dp"
-        android:text="@string/text_codice_fiscale"
-        android:textSize="8pt" />
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" >
 
-    <EditText
-        android:id="@+id/edit_cod_fiscale"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/text_cod_fiscale"
-        android:hint="@string/text_codice_fiscale"
-        android:inputType="textCapCharacters" />
+        <LinearLayout
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            
+            <TextView
+                android:id="@+id/text_username"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hint_login_username"
+                android:textSize="8pt" />
 
-    <TextView
-        android:id="@+id/text_nome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/edit_cod_fiscale"
-        android:text="@string/text_nome"
-        android:textSize="8pt" />
+            <EditText
+                android:id="@+id/edit_username"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:enabled="false"
+                android:hint="@string/hint_login_username"
+                android:inputType="textCapCharacters" />
 
-    <EditText
-        android:id="@+id/edit_nome"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/text_nome"
-        android:inputType="text" />
+            <TextView
+                android:id="@+id/text_cod_fiscale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_codice_fiscale"
+                android:textSize="8pt" />
 
-    <TextView
-        android:id="@+id/text_cognome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/edit_nome"
-        android:text="@string/text_cognome"
-        android:textSize="8pt" />
+            <EditText
+                android:id="@+id/edit_cod_fiscale"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:enabled="false"
+                android:hint="@string/text_codice_fiscale"
+                android:inputType="textCapCharacters" />
 
-    <EditText
-        android:id="@+id/edit_cognome"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/text_cognome"
-        android:inputType="text" />
+            <TextView
+                android:id="@+id/text_nome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_nome"
+                android:textSize="8pt" />
 
-    <TextView
-        android:id="@+id/text_data_nascita"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/edit_cognome"
-        android:text="@string/text_data_nascita"
-        android:textSize="8pt" />
+            <EditText
+                android:id="@+id/edit_nome"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:enabled="false"
+                android:inputType="text" />
 
-    <EditText
-        android:id="@+id/edit_data_nascita"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/text_data_nascita"
-        android:hint="@string/hint_for_birth" />
+            <TextView
+                android:id="@+id/text_cognome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_cognome"
+                android:textSize="8pt" />
 
-    <TextView
-        android:id="@+id/text_info_agg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/edit_data_nascita"
-        android:text="@string/text_info_aggiuntive"
-        android:textSize="8pt" />
+            <EditText
+                android:id="@+id/edit_cognome"
+                android:layout_width="fill_parent"
+                android:enabled="false"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="text" />
 
-    <Button
-        android:id="@+id/buttonOk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_info_agg"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
-        android:background="@drawable/background_orange"
-        android:text="@string/buttonOk" />
+            <TextView
+                android:id="@+id/text_data_nascita"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_data_nascita"
+                android:textSize="8pt" />
+
+            <EditText
+                android:id="@+id/edit_data_nascita"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:gravity="center"
+                android:hint="@string/hint_for_birth" />
+
+            <TextView
+                android:id="@+id/text_info_agg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_info_aggiuntive"
+                android:textSize="8pt" />
+
+            <EditText
+                android:id="@+id/edit_info_agg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:gravity="center"
+                android:hint="@string/hint_for_medical_information"
+                android:inputType="textMultiLine" />
+
+            <Button
+                android:id="@+id/buttonOk"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_orange"
+                android:text="@string/buttonOk" />
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

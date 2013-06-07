@@ -15,7 +15,7 @@ public class TitleAdapter extends FragmentPagerAdapter{
 		frags[1] = new SoccorsoActivity();
 		frags[2] = new ActivityDistressNotPersonal();
 		frags[4] = new ActivityServiceInfo();
-		frags[3] = new ActivityMyPosition_();
+		frags[3] = new ActivityMyPosition();
 	}
 	
 	public CharSequence getPageTitle (int position){
