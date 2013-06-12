@@ -114,7 +114,7 @@ public class RegistrationActivity extends Fragment implements OnClickListener {
 			NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 			if (networkInfo != null && networkInfo.isConnected()) {
 				task = new HttpGetTask();
-				task.execute(editUsername.getText().toString(),editPassword.getText().toString(),editNome.getText().toString(),"utente",editCodiceFis.getText().toString(),editCogn.getText().toString(),editInfoAgg.getText().toString());
+				task.execute(editUsername.getText().toString(),editPassword.getText().toString(),editNome.getText().toString(),"utente",editCodiceFis.getText().toString(),editCogn.getText().toString(),editInfoAgg.getText().toString(),editDataN.getText().toString());
 			} else {
 				//chiudo la dialog e avviso che non c'è connessione
 				pd.dismiss();
@@ -154,7 +154,8 @@ public class RegistrationActivity extends Fragment implements OnClickListener {
 			HttpClient client=null;
 			// interrogazione del web service
 			try {
-				String url="http://lifeonline.altervista.org/app/registrazione.php?username="+params[0]+"&password="+params[1]+"&nome="+params[2]+"&tipo="+params[3]+"&fiscale="+params[4]+"&cognome="+params[5]+"&segni="+params[6]+"&data_nascita"+params[7];
+				Log.e(ERROR_LOG,"do in back");
+				String url="http://lifeonline.altervista.org/app/registrazione.php?username="+params[0]+"&password="+params[1]+"&nome="+params[2]+"&tipo="+params[3]+"&fiscale="+params[4]+"&cognome="+params[5]+"&segni="+params[6]+"&data_nascita="+params[7];
 				url=url.replace(" ", "%20");
 				Log.e(ERROR_LOG,"URL: "+url);
 				client = new DefaultHttpClient();
@@ -191,7 +192,7 @@ public class RegistrationActivity extends Fragment implements OnClickListener {
 
 		protected void onPostExecute(String result) {
 			Log.e(ERROR_LOG, "trovato: "+result);
-			//parsing data
+			//parsing data, questa activuìity registra e fà il login in automatico
 			if (result!=null) try{
 				jArray = new JSONArray(result);
 				Log.e(ERROR_LOG, "Lunghezza array trovato: "+jArray.length());

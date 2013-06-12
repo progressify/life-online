@@ -28,7 +28,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +41,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
 public class ActivityDistressNotPersonal extends Fragment implements OnClickListener{
 
 	private String ERROR_LOG="LO";
@@ -55,7 +55,6 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 	private View myView;
 	private Spinner sintomi;
 	private EditText edit_sintomi_agg;
-	private ViewPager vp;
 
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
@@ -64,7 +63,6 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		myView = inflater.inflate(R.layout.activity_distress_not_personal, container, false);
 
-		vp = (ViewPager) getActivity().findViewById(R.id.viewpager);
 		button_invia=(Button) myView.findViewById(R.id.button_invia);
 		button_invia.setOnClickListener(this);
 		edit_sintomi_agg = (EditText) myView.findViewById(R.id.edit_sintomi_agg);
@@ -140,7 +138,7 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 		if (v.getId() == R.id.button_invia){
 			pd.show();
 			//controllo se il fix è avvenuto
-			if(sing.getLatitudine() !="-1"){
+			if(sing.getLatitudine() !="-1" && sing.isGpsEnabled()){
 				ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 				NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 				if (networkInfo != null && networkInfo.isConnected()) {
@@ -156,9 +154,14 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 					Toast.makeText(getActivity(), R.string.toast_connection_unavailable ,Toast.LENGTH_LONG).show();
 				}
 			} else {
-				//fix non avvenuto avverto l'utente
+				//fix non avvenuto o gps disattivato
 				pd.dismiss();
-				Toast.makeText(getActivity(), R.string.toast_gps_unavailable ,Toast.LENGTH_LONG).show();
+				if (sing.isGpsEnabled())
+					Toast.makeText(getActivity(), R.string.toast_gps_unavailable ,Toast.LENGTH_LONG).show();
+				else {
+					Toast.makeText(getActivity(), R.string.toast_gps_disabled ,Toast.LENGTH_LONG).show();
+					showSettingsGPSAlert();
+				}
 			}
 		}
 	}
@@ -225,9 +228,10 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 		alertDialog.setNegativeButton(getResources().getString(R.string.popup_bottone_no_gps), new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.cancel();
-				vp.setCurrentItem(0);
+				sing.setGpsEnabled(false);
 			}
 		});
+		alertDialog.setCancelable(false);
 		alertDialog.show();
 	}
 

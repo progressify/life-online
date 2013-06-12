@@ -4,6 +4,7 @@
     <string name="app_name">Life-online</string>
     <string name="action_settings">Impostazioni</string>
     <string name="menu_settings">Impostazioni</string>
+    <string name="size_pager_text">42</string>
     <!-- toast -->
     <string name="toast_connection_unavailable">Connessione assente</string>
     <string name="toast_login_failed_invalid_usrpsw">Dati non validi</string>
@@ -22,6 +23,7 @@
     <string name="toast_distress_segnalazione">Segnalazione inviata</string>
     <string name="toast_main_seleziona">selezionato, ora scegli la segnalazione</string>
     <string name="toast_soccorso_seleziona_ente">Seleziona prima un ente dalla lista</string>
+    <string name="toast_gps_disabled">Attiva il GPS</string>
     <string name="popup_imposta_data">Imposta Data</string>
     <string name="popup_titolo_gps">Impostazioni GPS</string>
     <string name="popup_messaggio_gps">Il GPS non è abilitato. Per l\'invio della segnalazione è obbligatorio poter rilevare la tua posizione. Abilita il GPS dalle impostazioni</string>

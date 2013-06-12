@@ -35,6 +35,7 @@ public class SoccorsoActivity extends Fragment implements OnClickListener{
 		buttonHelp.setOnClickListener(this);
 		buttonHelp2.setOnClickListener(this);
 		buttonCall.setOnClickListener(this);
+		
 		return myView;
 	}
 
@@ -86,5 +87,4 @@ public class SoccorsoActivity extends Fragment implements OnClickListener{
 			}
 		}
 	}
-
 }

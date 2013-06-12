@@ -1,13 +1,15 @@
 package it.bdsir.life_online;
 
 class Singleton {
-	static final Object mLock = new Object();
+	private static final Object mLock = new Object();
 	static Singleton mInstance;
 	private String id;
 	private String ente,latitudine,longitudine,numero;
+	private boolean gpsEnabled;
 
 	private Singleton() {
 		id="";
+		gpsEnabled=true;
 		ente="";
 		latitudine="-1";
 		longitudine="-1";
@@ -24,13 +26,14 @@ class Singleton {
 	}
 
 	public void del(){
+		gpsEnabled=true;
 		id="";
 		ente="";
 		latitudine="-1";
 		longitudine="-1";
 		numero="";
 	}
-	
+
 	public String getLatitudine() {
 		return latitudine;
 	}
@@ -68,5 +71,13 @@ class Singleton {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public boolean isGpsEnabled() {
+		return gpsEnabled;
+	}
+
+	public void setGpsEnabled(boolean gpsEnabled) {
+		this.gpsEnabled = gpsEnabled;
 	}
 }
