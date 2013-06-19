@@ -147,7 +147,7 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 					String num_feriti=sp.getSelectedItem().toString();
 					Log.e(ERROR_LOG, "numero feriti: "+num_feriti);
 					String ente=sing.getEnte().replace(" ", "%20");
-					task.execute(sing.getId(),ente,sing.getLatitudine()+","+sing.getLongitudine(),num_feriti,"terzi");
+					task.execute(sing.getId(),ente,sing.getLatitudine()+";"+sing.getLongitudine(),num_feriti,"terzi");
 				} else {
 					//chiudo la dialog e avviso che non c'è connessione
 					pd.dismiss();
