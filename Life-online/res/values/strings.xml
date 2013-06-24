@@ -29,6 +29,9 @@
     <string name="popup_messaggio_gps">Il GPS non è abilitato. Per l\'invio della segnalazione è obbligatorio poter rilevare la tua posizione. Abilita il GPS dalle impostazioni</string>
     <string name="popup_bottone_no_gps">Annulla</string>
     <string name="popup_bottone_si_gps">Vai alle impostazioni</string>
+    <string name="popup_bottone_si_personale">Invia</string>
+    <string name="popup_titolo_personale">Conferma invio</string>
+    <string name="popup_messaggio_personale">Stai per inviare una segnalazione personale. Verranno inviate al nostro server le tue coordinate GPS per poterti rintracciare e offrirti assistenza il prima possibile.</string>
     <!-- text view -->
     <string name="text_tipi_di_soccorso">Tipo di soccorso</string>
     <string name="text_soccorso">Soccorso</string>

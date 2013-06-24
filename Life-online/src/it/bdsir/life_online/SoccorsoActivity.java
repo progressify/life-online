@@ -36,7 +36,7 @@ public class SoccorsoActivity extends Fragment implements OnClickListener{
 		buttonHelp2.setOnClickListener(this);
 		buttonCall.setOnClickListener(this);
 		
-		return myView;
+		return myView; 
 	}
 
 	@Override
@@ -45,11 +45,11 @@ public class SoccorsoActivity extends Fragment implements OnClickListener{
 			if(sing.getEnte().equals("")==false){
 				AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
 				// titolo dialog
-				alertDialog.setTitle(getResources().getString(R.string.popup_titolo_gps));
+				alertDialog.setTitle(getResources().getString(R.string.popup_titolo_personale));
 				// messaggio dialog
-				alertDialog.setMessage(getResources().getString(R.string.popup_messaggio_gps));
+				alertDialog.setMessage(getResources().getString(R.string.popup_messaggio_personale));
 				// quando premo ok
-				alertDialog.setPositiveButton(getResources().getString(R.string.popup_bottone_si_gps), new DialogInterface.OnClickListener() {
+				alertDialog.setPositiveButton(getResources().getString(R.string.popup_bottone_si_personale), new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog,int which) {
 						//qui devo creare un asynctask per inviare la segnalazione personale
 					}

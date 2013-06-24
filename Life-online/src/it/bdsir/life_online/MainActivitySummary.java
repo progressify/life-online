@@ -61,16 +61,16 @@ public class MainActivitySummary extends Fragment implements OnItemClickListener
 	public void onItemClick(AdapterView<?> arg0, View arg1, int position, long id) {
 		switch ((int)id) {
 		case 0: //polizia di stato
-			switcher("113",cols[0]);
+			switcher("113","polizia");
 			break;
 		case 1: //vigili del fuoco
-			switcher("115",cols[1]);
+			switcher("115","pompieri");
 			break;
 		case 2: //carabinieri
-			switcher("112",cols[2]);
+			switcher("112","carabinieri");
 			break;
 		case 3: //emergenza sanitaria
-			switcher("118",cols[3]);
+			switcher("118","ambulanza");
 			break;
 		case 4: //capitaneria di porto
 			switcher("1530",cols[4]);

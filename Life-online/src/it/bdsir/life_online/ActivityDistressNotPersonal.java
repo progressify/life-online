@@ -147,6 +147,7 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 					String num_feriti=sp.getSelectedItem().toString();
 					Log.e(ERROR_LOG, "numero feriti: "+num_feriti);
 					String ente=sing.getEnte().replace(" ", "%20");
+					Log.e(ERROR_LOG,sing.getId());
 					task.execute(sing.getId(),ente,sing.getLatitudine()+";"+sing.getLongitudine(),num_feriti,"terzi");
 				} else {
 					//chiudo la dialog e avviso che non c'è connessione
@@ -251,7 +252,7 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 			HttpClient client=null;
 			// interrogazione del web service
 			try {
-				String url="http://lifeonline.altervista.org/app/segnalazione.php?id_segnalante"+params[0]+"&ente_riferimento="+params[1]+"&coordinate_gps="+params[2]+"&persone_coinvolte="+params[3]+"&personale="+params[4];
+				String url="http://lifeonline.altervista.org/app/segnalazione.php?id_segnalante="+params[0]+"&ente_riferimento="+params[1]+"&coordinate_gps="+params[2]+"&persone_coinvolte="+params[3]+"&personale="+params[4];
 				Log.e(ERROR_LOG,"URL: "+url);
 				client = new DefaultHttpClient();
 				final HttpParams httpParams = client.getParams();

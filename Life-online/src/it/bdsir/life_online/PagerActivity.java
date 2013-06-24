@@ -11,10 +11,10 @@ import android.view.Menu;
 public class PagerActivity extends FragmentActivity { 
 	private ViewPager mViewPager;
 	
-	public PagerActivity(ViewPager mViewPager) {
-		super();
-		this.mViewPager = mViewPager;
-	}
+//	public PagerActivity(ViewPager mViewPager) {
+//		super();
+//		this.mViewPager = mViewPager;
+//	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
