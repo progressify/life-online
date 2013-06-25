@@ -11,7 +11,7 @@ public class TitleAdapter extends FragmentPagerAdapter{
 
 	public TitleAdapter(FragmentManager fm) {
 		super(fm);
-		frags[0]= new MainActivitySummary();
+		frags[0] = new MainActivitySummary();
 		frags[1] = new SoccorsoActivity();
 		frags[2] = new ActivityDistressNotPersonal();
 		
