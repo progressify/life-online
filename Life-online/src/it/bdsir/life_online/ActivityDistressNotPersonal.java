@@ -170,9 +170,7 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 	private void _getLocation() {
 		// Get the location manager
 		locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-		boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-		if (!isGPSEnabled)
-			showSettingsGPSAlert();
+		checkGPS();
 		Criteria criteria = new Criteria();
 		criteria.setAccuracy(Criteria.ACCURACY_FINE); 
 		String bestProvider = locationManager.getBestProvider(criteria, true);
@@ -223,6 +221,7 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 			public void onClick(DialogInterface dialog,int which) {
 				Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 				startActivity(intent);
+				checkGPS();
 			}
 		});
 		// quando premo no
@@ -234,6 +233,14 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 		});
 		alertDialog.setCancelable(false);
 		alertDialog.show();
+	}
+
+	private void checkGPS() {
+		boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+		if (!isGPSEnabled)
+			showSettingsGPSAlert();
+		else
+			sing.setGpsEnabled(true);
 	}
 
 	private class HttpGetTask extends AsyncTask<String,String,String>  {
