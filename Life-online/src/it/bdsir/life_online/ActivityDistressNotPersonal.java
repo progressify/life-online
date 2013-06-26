@@ -148,7 +148,13 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 					Log.e(ERROR_LOG, "numero feriti: "+num_feriti);
 					String ente=sing.getEnte().replace(" ", "%20");
 					Log.e(ERROR_LOG,sing.getId());
-					task.execute(sing.getId(),ente,sing.getLatitudine()+";"+sing.getLongitudine(),num_feriti,"terzi");
+					Spinner sp_sintomi=(Spinner) myView.findViewById(R.id.spinner_causa_malessere);
+					Spinner sp_sint=(Spinner) myView.findViewById(R.id.spinner_sintomi);
+					EditText sp_sint_agg=(EditText) myView.findViewById(R.id.edit_sintomi_agg);
+					String sitomi_aggiuntivi=sp_sintomi.getSelectedItem().toString() +";"+ sp_sint.getSelectedItem().toString()+";"+sp_sint_agg.getText().toString();
+					Log.e(ERROR_LOG, sitomi_aggiuntivi);
+					String info=sitomi_aggiuntivi.replace(" ", "%20");
+					task.execute(sing.getId(),ente,sing.getLatitudine()+";"+sing.getLongitudine(),num_feriti,"terzi",info);
 				} else {
 					//chiudo la dialog e avviso che non c'è connessione
 					pd.dismiss();
@@ -182,6 +188,7 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 					lon = location.getLongitude();
 					sing.setLatitudine(""+lat);
 					sing.setLongitudine(""+lon);
+					ActivityMyPosition.addMarkerOnMaps(lat, lon,getActivity());
 				} catch (NullPointerException e) {
 					lat = -1.0;
 					lon = -1.0;
@@ -259,7 +266,7 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 			HttpClient client=null;
 			// interrogazione del web service
 			try {
-				String url="http://lifeonline.altervista.org/app/segnalazione.php?id_segnalante="+params[0]+"&ente_riferimento="+params[1]+"&coordinate_gps="+params[2]+"&persone_coinvolte="+params[3]+"&personale="+params[4];
+				String url="http://lifeonline.altervista.org/app/segnalazione.php?id_segnalante="+params[0]+"&ente_riferimento="+params[1]+"&coordinate_gps="+params[2]+"&persone_coinvolte="+params[3]+"&personale="+params[4]+"&informazioni_aggiuntive="+params[5];
 				Log.e(ERROR_LOG,"URL: "+url);
 				client = new DefaultHttpClient();
 				final HttpParams httpParams = client.getParams();
@@ -299,6 +306,4 @@ public class ActivityDistressNotPersonal extends Fragment implements OnClickList
 			Toast.makeText(getActivity(), R.string.toast_distress_segnalazione ,Toast.LENGTH_SHORT).show();
 		}
 	}
-
-
 }
